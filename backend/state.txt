@@ -1,0 +1,138 @@
+not code, just a txt file containing exactly what the state obj looks like
+
+ctx.session.state = {
+
+    # ── Written directly by AnalyzeAgent ──────────────────────────────────
+
+    "raw_adc":      int,        # e.g. 671
+    "electrode_a":  int,        # e.g. 2048
+    "electrode_b":  int,        # e.g. 2048
+
+    "cycle_count":  int,        # incremented every cycle e.g. 42
+
+    "history": [
+        {
+            "raw_adc":     int,    # e.g. 668
+            "electrode_a": int,    # e.g. 2048
+            "electrode_b": int,    # e.g. 2048
+            "time_ms":     int,    # Arduino millis() e.g. 14523
+            "flag":        str,    # "auto" | "ai"
+            "host_time":   float,  # Unix timestamp e.g. 1743100200.45
+            "target_adc":  int,    # target active at THIS reading e.g. 752
+        },
+        # ... capped at MAX_HISTORY = 50
+    ],
+
+    "analysis": {
+        "timestamp":              float,  # time.time() of this cycle
+        "cycle_count":            int,    # e.g. 42
+
+        # raw readings
+        "raw_adc":                int,    # e.g. 671
+        "electrode_a":            int,    # e.g. 2048
+        "electrode_b":            int,    # e.g. 2048
+        "electrode_diff":         int,    # electrode_a - electrode_b e.g. 0
+        "flag":                   str,    # "auto" | "ai"
+
+        # target
+        "target_adc":             int,    # e.g. 752
+        "target_changed":         bool,   # True if ImprovementAgent changed it
+
+        # error metrics
+        "error_from_target":      int,    # raw_adc - target_adc, noisy, log only
+        "steady_state_error":     float,  # ewma_adc - target_adc, act on this
+        "integral_error":         float,  # sum of per-entry errors, chronic bias
+
+        # signal shape
+        "ewma_adc":               float,  # noise-filtered operating point
+        "std_adc":                float,  # std dev over STATS_WINDOW
+        "cv":                     float,  # std/mean, < 0.02 stable > 0.10 noisy
+        "roc":                    int,    # raw_adc - prev_adc
+
+        # control state
+        "is_settling":            bool,   # True = still in transient, wait
+        "cycles_since_command":   int,    # cycle_count - last_command_cycle
+        "command_effectiveness":  str,    # "effective"|"ineffective"|"reversed"|"unknown"
+
+        # safety flags
+        "is_spike":               bool,   # raw_adc > spike_threshold
+        "is_low":                 bool,   # raw_adc < low_threshold
+
+        # tuning params snapshot
+        "tuning_params": {
+            "target_adc":         int,    # 752
+            "max_delta":          int,    # 200
+            "spike_threshold":    int,    # 800
+            "low_threshold":      int,    # 580
+            "settle_timeout":     int,    # 8
+            "settling_threshold": float,  # 5.0
+        },
+
+        "history_length":         int,    # len(history) e.g. 42
+    },
+
+    # ── Written by AnalyzeAgent conditionally (on target change) ──────────
+    # also written by ActionAgent when a real command fires
+    "last_command_cycle": int,  # cycle_count at time of last real command
+
+    # ── Written by DecisionAgent (LLM) ────────────────────────────────────
+    "decision": {
+        "action":            str,    # "increase_both" | "decrease_both"
+                                     # "increase_a"    | "decrease_a"
+                                     # "increase_b"    | "decrease_b"
+                                     # "small_adjust_up" | "small_adjust_down"
+                                     # "balance_electrodes"
+                                     # "do_nothing"
+                                     # "emergency_backup"
+        "electrode_a_delta": int,    # e.g. +150
+        "electrode_b_delta": int,    # e.g. +150
+        "reasoning":         str,    # LLM explanation
+        "confidence":        float,  # e.g. 0.85
+    },
+
+    # ── Written by ActionAgent ────────────────────────────────────────────
+    # read next cycle by AnalyzeAgent for command_effectiveness
+    "last_action": {
+        "action": str,        # what was executed
+
+        # for electrode change actions:
+        "ok":          bool,  # serial bridge success
+        "electrode_a": int,   # new value e.g. 2248
+        "electrode_b": int,   # new value e.g. 2248
+        "prev_a":      int,   # value before e.g. 2048
+        "prev_b":      int,   # value before e.g. 2048
+
+        # for do_nothing only:
+        "msg":         str,   # "No change applied"
+
+        # for emergency_backup only:
+        "mode":        str,   # "auto"
+    },
+
+    # ── Written by ImprovementAgent (LLM) ─────────────────────────────────
+    "improvement_result": {
+        "improvements": {
+            "target_adc":      int | None,
+            "max_delta":       int | None,
+            "spike_threshold": int | None,
+            "low_threshold":   int | None,
+            "reasoning":       str,
+            "changes_made":    bool,
+        },
+        "params_pushed":  dict,   # what actually got sent to Arduino
+        "arduino_result": dict,   # {"ok": True, "updated_params": {...}}
+    },
+
+    # ── Tuning parameters (live, read by AnalyzeAgent top of every cycle) ─
+    # defaults from your constants, updated by ImprovementAgent
+    "target_adc":         int,    # default TARGETADC = 752
+    "max_delta":          int,    # default MAXDELTA = 200
+    "spike_threshold":    int,    # default SPIKETHRESHOLD = 800
+    "low_threshold":      int,    # default LOWTHRESHOLD = 580
+    "settle_timeout":     int,    # default SETTLE_TIMEOUT = 8
+    "settling_threshold": float,  # default SETTLING_THRESHOLD = 5.0
+
+    # ── LLM prompt staging (ephemeral, not meaningful) ─────────────────────
+    "_decision_prompt":    str,
+    "_improvement_prompt": str,
+}
