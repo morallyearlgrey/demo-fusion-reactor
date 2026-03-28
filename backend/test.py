@@ -1,4 +1,18 @@
-# hi
+"""
+pipeline/agents/decision_agent.py
+
+LLM-powered decision agent.
+Reads the analysis from session state and decides what electrode adjustment
+to make: increase, decrease, do nothing, emergency backup, etc.
+
+Session state keys read:
+  "analysis"    : dict  (from analyze_agent)
+  "last_action" : dict  (from previous action_agent run)
+
+Session state keys written:
+  "decision"    : dict  {action, electrode_a_delta, electrode_b_delta, reasoning, confidence}
+"""
+
 from __future__ import annotations
 
 import json
@@ -12,7 +26,6 @@ from google.adk.events import Event
 logger = logging.getLogger(__name__)
 
 DECISION_INSTRUCTION = """
-
 You are the Decision Agent for an autonomous nuclear fusion reactor controller.
 Your role is to read sensor analysis and decide the optimal electrode voltage adjustment.
 
@@ -149,14 +162,17 @@ No markdown, no explanation outside the JSON, no extra keys.
   "reasoning": "<2-3 sentences explaining which rule fired, what the key metrics were, and why this action.>",
   "confidence": <float 0.0-1.0>
 }
-
 """
 
-# reads in the analysis dic and produces a json, reasons like crazy lol
-class DecisionAgent(LlmAgent):
 
-    # model may need to be edited, ask dawn lol
-    def __init__(self, model: str = "gemini-2.5-flash"):
+class DecisionAgent(LlmAgent):
+    """
+    LLM agent that reads the analysis dict from session state and produces
+    a structured decision JSON. Uses Gemini to reason over control-theory
+    metrics produced by AnalyzeAgent.
+    """
+
+    def __init__(self, model: str = "gemini-2.0-flash"):
         super().__init__(
             name="decision_agent",
             description="LLM that decides electrode adjustments based on sensor analysis.",
@@ -167,26 +183,28 @@ class DecisionAgent(LlmAgent):
     async def _run_async_impl(
         self, ctx: InvocationContext
     ) -> AsyncGenerator[Event, None]:
-        analysis    = ctx.session.state.get("analysis", {})
-        last_action = ctx.session.state.get("last_action", {}) # from action agent
 
-        # focused analysis from the analysis agent values, outputs into json to context baka blast
+        analysis    = ctx.session.state.get("analysis", {})
+        last_action = ctx.session.state.get("last_action", {})
+
+        # Build a focused prompt — only include what the LLM needs to reason about.
+        # We explicitly exclude history (too large) and internal staging keys.
         focused_analysis = {
             # error metrics
-            "steady_state_error":    analysis.get("steady_state_error"), # error between ewma and target
-            "error_from_target":     analysis.get("error_from_target"), # error from raw and target
-            "integral_error":        analysis.get("integral_error"), # sees how biased the system's been towards undershooting/overshooting
+            "steady_state_error":    analysis.get("steady_state_error"),
+            "error_from_target":     analysis.get("error_from_target"),
+            "integral_error":        analysis.get("integral_error"),
 
             # signal shape
-            "ewma_adc":              analysis.get("ewma_adc"), # avg
-            "cv":                    analysis.get("cv"), # stableness
-            "roc":                   analysis.get("roc"), # roc between raw and prev
-            "std_adc":               analysis.get("std_adc"), # standard dev across window
+            "ewma_adc":              analysis.get("ewma_adc"),
+            "cv":                    analysis.get("cv"),
+            "roc":                   analysis.get("roc"),
+            "std_adc":               analysis.get("std_adc"),
 
             # control state
-            "is_settling":           analysis.get("is_settling"), #
+            "is_settling":           analysis.get("is_settling"),
             "cycles_since_command":  analysis.get("cycles_since_command"),
-            "command_effectiveness": analysis.get("command_effectiveness"), # true if the signal is still moving over a certain threshold, but will false that if it's been 8 cycles in the clock
+            "command_effectiveness": analysis.get("command_effectiveness"),
 
             # safety
             "is_spike":              analysis.get("is_spike"),
@@ -202,7 +220,7 @@ class DecisionAgent(LlmAgent):
             "tuning_params":         analysis.get("tuning_params", {}),
         }
 
-        # from adction anaylsysis agent
+        # Summarise last_action — only include fields relevant to the decision
         focused_last_action = {
             "action":      last_action.get("action"),
             "ok":          last_action.get("ok"),
@@ -212,8 +230,6 @@ class DecisionAgent(LlmAgent):
             "electrode_b": last_action.get("electrode_b"),
         } if last_action else {}
 
-
-        # dumps current analysis into a json
         prompt = (
             f"## Current Analysis\n"
             f"```json\n{json.dumps(focused_analysis, indent=2)}\n```\n\n"
@@ -224,6 +240,7 @@ class DecisionAgent(LlmAgent):
 
         ctx.session.state["_decision_prompt"] = prompt
 
+        # Collect LLM output
         raw_decision_text = ""
         async for event in super()._run_async_impl(ctx):
             if hasattr(event, "content") and event.content:
@@ -233,7 +250,7 @@ class DecisionAgent(LlmAgent):
                         raw_decision_text += part["text"]
             yield event
 
-        # pxarse decision JSON
+        # Parse decision JSON
         try:
             clean    = raw_decision_text.strip().strip("```json").strip("```").strip()
             decision = json.loads(clean)
@@ -247,7 +264,7 @@ class DecisionAgent(LlmAgent):
                 "confidence":        0.0,
             }
 
-        # safety clamp — LLM should never exceed max_delta but enforce it here too
+        # Safety clamp — LLM should never exceed max_delta but enforce it here too
         max_delta = analysis.get("tuning_params", {}).get("max_delta", 200)
         decision["electrode_a_delta"] = max(
             -max_delta, min(max_delta, int(decision.get("electrode_a_delta", 0)))
@@ -266,3 +283,22 @@ class DecisionAgent(LlmAgent):
             decision.get("confidence", 0),
             decision.get("reasoning", "")[:120],
         )
+```
+
+---
+
+## What changed and why
+
+**Prompt metrics — complete replacement:**
+
+The old prompt referenced these which no longer exist in the analysis dict:
+```
+trend_label, trend_slope, drift, stability_index, converging, pct_error
+```
+
+The new prompt references only what `AnalyzeAgent` actually produces:
+```
+steady_state_error, error_from_target, integral_error,
+ewma_adc, cv, roc, std_adc,
+is_settling, cycles_since_command, command_effectiveness,
+is_spike, is_low, target_changed, electrode_diff, tuning_params
