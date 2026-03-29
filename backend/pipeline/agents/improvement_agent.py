@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import logging
+import re
 from typing import AsyncGenerator
 
 from google.adk.agents import LlmAgent
@@ -184,7 +185,13 @@ DO NOTHING when:
   system is already stable and near target
   any uncertainty — bad changes compound, stability is more valuable than speed
 
-## Output format — single valid JSON object, no other text, no markdown fences
+## Output format — CRITICAL
+You MUST respond with ONLY a single valid JSON object.
+No markdown code fences (no ```json or ```).
+No preamble text before the opening brace.
+No explanation text after the closing brace.
+Start your response with { and end with }.
+
 {
   "target_adc":      <int or null to leave unchanged>,
   "max_delta":       <int or null>,
@@ -196,6 +203,79 @@ DO NOTHING when:
 """
 
 
+def _sanitize_python_dict(raw: str) -> str:
+    """
+    Convert Python-dict-style output (single quotes, True/False/None)
+    to valid JSON. The small Gemini model sometimes ignores the JSON
+    instruction and returns Python repr instead.
+    """
+    import re
+    # Replace Python boolean/None literals with JSON equivalents
+    s = re.sub(r'\bTrue\b',  'true',  raw)
+    s = re.sub(r'\bFalse\b', 'false', s)
+    s = re.sub(r'\bNone\b',  'null',  s)
+    # Replace single-quoted strings with double-quoted strings,
+    # but only where the single quote is used as a string delimiter.
+    # This regex handles the common case; complex nested quotes may still fail.
+    s = re.sub(r"(?<![\\])'", '"', s)
+    return s
+
+
+def _extract_json(raw: str) -> dict:
+    """
+    Robustly extract a JSON object from an LLM response that may contain
+    markdown fences, preamble text, or other surrounding content.
+
+    Strategy:
+      1. Try direct parse of the stripped string (fastest, works when LLM is clean)
+      2. Strip ```json ... ``` or ``` ... ``` fences and retry
+      3. Regex-extract the first {...} block (most robust fallback)
+    """
+    text = raw.strip()
+
+    # Strategy 1: direct parse
+    try:
+        return json.loads(text)
+    except (json.JSONDecodeError, ValueError):
+        pass
+
+    # Strategy 2: strip markdown fences
+    # Handles ```json\n{...}\n``` and ```\n{...}\n```
+    fence_pattern = re.compile(r'```(?:json)?\s*(.*?)\s*```', re.DOTALL)
+    fence_match = fence_pattern.search(text)
+    if fence_match:
+        try:
+            return json.loads(fence_match.group(1))
+        except (json.JSONDecodeError, ValueError):
+            pass
+
+    # Strategy 3: find the first complete {...} block
+    # This handles preamble/postamble text around the JSON
+    brace_match = re.search(r'\{.*\}', text, re.DOTALL)
+    if brace_match:
+        try:
+            return json.loads(brace_match.group(0))
+        except (json.JSONDecodeError, ValueError):
+            pass
+
+    # All strategies failed — try Python-dict sanitisation and retry all
+    sanitized = _sanitize_python_dict(text)
+    try:
+        return json.loads(sanitized)
+    except (json.JSONDecodeError, ValueError):
+        pass
+
+    brace_match2 = re.search(r'\{.*\}', sanitized, re.DOTALL)
+    if brace_match2:
+        try:
+            return json.loads(brace_match2.group(0))
+        except (json.JSONDecodeError, ValueError):
+            pass
+
+    # All strategies failed
+    raise ValueError(f"No valid JSON object found in response: {raw[:300]}")
+
+
 class ImprovementAgent(LlmAgent):
 
     def __init__(self, model: str = "gemini-2.5-flash-lite"):
@@ -204,6 +284,9 @@ class ImprovementAgent(LlmAgent):
             description="LLM that meta-learns and updates tuning parameters in session state.",
             model=model,
             instruction=IMPROVEMENT_INSTRUCTION,
+            # Same reason as DecisionAgent — prevent stale event history from
+            # contaminating reasoning. Only the current cycle prompt is needed.
+            # include_contents="none",
         )
 
     async def _run_async_impl(
@@ -222,6 +305,30 @@ class ImprovementAgent(LlmAgent):
             "low_threshold":   ctx.session.state.get("low_threshold",    LOW_THRESHOLD),
         }
 
+        # ── BEAM-SEARCH EARLY EXIT ────────────────────────────────────────────
+        # Do not touch parameters while is_low=True. During beam search there is
+        # no stable signal to reason from — any parameter changes made here are
+        # based on incomplete data and can destabilise the sweep (e.g. the
+        # max_delta=400 bomb seen in the logs was caused by this exact scenario).
+        if analysis.get("is_low", False):
+            no_op_result = {
+                "improvements":   {},
+                "params_changed": {},
+            }
+            ctx.session.state["improvement_result"] = no_op_result
+            logger.info(
+                "ImprovementAgent | skipped — beam search active (is_low=True), "
+                "no parameter changes made"
+            )
+            yield Event(
+                author=self.name,
+                actions=EventActions(state_delta={"improvement_result": no_op_result}),
+                content={"parts": [{"text": (
+                    "[ImprovementAgent] Beam search active — skipping parameter update"
+                )}]},
+            )
+            return
+
         # focused subset — only what the LLM needs to reason about
         focused_analysis = {
             "steady_state_error":    analysis.get("steady_state_error"),
@@ -231,17 +338,61 @@ class ImprovementAgent(LlmAgent):
             "command_effectiveness": analysis.get("command_effectiveness"),
             "is_spike":              analysis.get("is_spike"),
             "is_low":                analysis.get("is_low"),
+            "raw_adc":               analysis.get("raw_adc"),
             "target_adc":            analysis.get("target_adc"),
             "cycle_count":           analysis.get("cycle_count"),
             "history_length":        analysis.get("history_length"),
         }
 
+        # Build recent_decisions from history + decision_history so the LLM
+        # can see what actually happened over the last 5 cycles and stop
+        # reasoning as if it's cycle 1.
+        decision_history = ctx.session.state.get("decision_history", [])
+        recent_decisions = []
+        tail = recent_10[-5:] if len(recent_10) >= 5 else recent_10
+        for i, entry in enumerate(tail):
+            dh_offset = len(decision_history) - len(tail) + i
+            past_decision = decision_history[dh_offset] if 0 <= dh_offset < len(decision_history) else {}
+            recent_decisions.append({
+                "raw_adc":     entry.get("raw_adc"),
+                "electrode_a": entry.get("electrode_a"),
+                "electrode_b": entry.get("electrode_b"),
+                "target_adc":  entry.get("target_adc"),
+                "action":      past_decision.get("action", "unknown"),
+            })
+
+        # Ground truth header — mirrors DecisionAgent pattern so the LLM
+        # cannot misread is_low / is_settling from the decision reasoning text.
+        cycle_now         = analysis.get("cycle_count", 0)
+        is_low_val        = analysis.get("is_low", False)
+        is_settling_val   = analysis.get("is_settling", False)
+        sse_val           = analysis.get("steady_state_error", 0)
+        effectiveness_val = analysis.get("command_effectiveness", "unknown")
+        raw_adc_val       = analysis.get("raw_adc", 0)
+
+        ground_truth_header = (
+            f"## GROUND TRUTH — hardware-measured this cycle (do not contradict)\n"
+            f"  cycle_count   = {cycle_now}   ← you are NOT at cycle 1\n"
+            f"  is_low        = {is_low_val}   ← beam ABSENT if True, PRESENT if False\n"
+            f"  is_settling   = {is_settling_val}\n"
+            f"  raw_adc       = {raw_adc_val}\n"
+            f"  steady_state_error = {sse_val}  ← negative=below target, positive=above\n"
+            f"  command_effectiveness = {effectiveness_val}\n\n"
+            f"NOTE: The decision agent reasoning text may mention 'beam search' or "
+            f"'is_low=True' due to override annotations — always trust the GROUND TRUTH "
+            f"values above, not the decision reasoning string.\n\n"
+        )
+
         prompt = (
-            f"## Analysis\n```json\n{json.dumps(focused_analysis, indent=2)}\n```\n\n"
-            f"## Decision This Cycle\n```json\n{json.dumps(decision, indent=2)}\n```\n\n"
-            f"## Recent History (last 10)\n```json\n{json.dumps(recent_10, indent=2)}\n```\n\n"
-            f"## Current Parameters\n```json\n{json.dumps(current_params, indent=2)}\n```\n\n"
-            "Output your parameter update JSON now."
+            ground_truth_header
+            + f"## SYSTEM CONTEXT — cycle {cycle_now}, history_length={analysis.get('history_length', 0)}\n\n"
+            + f"## Recent History (last 5 cycles — oldest to newest)\n"
+            + f"```json\n{json.dumps(recent_decisions, indent=2)}\n```\n\n"
+            + f"## Analysis\n{json.dumps(focused_analysis, indent=2)}\n\n"
+            + f"## Decision This Cycle\n{json.dumps(decision, indent=2)}\n\n"
+            + f"## Current Parameters\n{json.dumps(current_params, indent=2)}\n\n"
+            "Output your parameter update JSON now. "
+            "Respond with ONLY the JSON object — no markdown fences, no extra text."
         )
 
         ctx.session.state["_improvement_prompt"] = prompt
@@ -256,10 +407,9 @@ class ImprovementAgent(LlmAgent):
                         raw_text += text
             yield event
 
-        # parse LLM response
+        # parse LLM response — use robust multi-strategy extractor
         try:
-            clean        = raw_text.strip().strip("```json").strip("```").strip()
-            improvements = json.loads(clean)
+            improvements = _extract_json(raw_text)
         except (json.JSONDecodeError, ValueError) as exc:
             logger.warning("ImprovementAgent: parse error: %s", exc)
             improvements = {
@@ -281,10 +431,39 @@ class ImprovementAgent(LlmAgent):
             if val is not None:
                 try:
                     val = int(val)
+
+                    # ── Hard safety rails — prevent wild single-cycle swings ──
+                    if key == "max_delta":
+                        # Absolute bounds
+                        val = max(10, min(400, val))
+                        # Rate-of-change cap: no more than ±20% per cycle.
+                        # This stopped the max_delta=400 bomb (was 40→400 in one cycle).
+                        current_delta = int(ctx.session.state.get("max_delta", MAX_DELTA))
+                        max_change    = max(10, int(current_delta * 0.20))
+                        val = max(current_delta - max_change,
+                                  min(current_delta + max_change, val))
+
+                    elif key == "target_adc":
+                        # Never go below low_threshold or above spike_threshold
+                        low_thr  = int(ctx.session.state.get("low_threshold",  LOW_THRESHOLD))
+                        spike_thr = int(ctx.session.state.get("spike_threshold", SPIKE_THRESHOLD))
+                        val = max(low_thr, min(spike_thr - 20, val))
+
+                    elif key == "spike_threshold":
+                        val = max(700, min(950, val))
+
+                    elif key == "low_threshold":
+                        val = max(500, min(750, val))
+
                     ctx.session.state[key] = val
                     params_changed[key] = val
                 except (TypeError, ValueError):
                     pass
+
+        # Guard against changes_made=None from LLM (causes misleading logs)
+        changes_made = improvements.get("changes_made")
+        if changes_made is None:
+            changes_made = bool(params_changed)
 
         ctx.session.state["improvement_result"] = {
             "improvements":  improvements,
@@ -293,7 +472,7 @@ class ImprovementAgent(LlmAgent):
 
         logger.info(
             "ImprovementAgent | changes_made=%s params_changed=%s | %s",
-            improvements.get("changes_made"),
+            changes_made,
             params_changed,
             improvements.get("reasoning", "N/A")[:120],
         )

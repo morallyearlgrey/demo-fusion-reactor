@@ -44,9 +44,13 @@ DEFAULT_STATE: dict = {
     # These are the values AnalyzeAgent reads at the top of every cycle.
     # ImprovementAgent updates them and pushes changes to Arduino via set_params.
     #
-    # target_adc:      752  — 75% of usable ADC range (550 + 270*0.75)
-    #                         Not max — leaves headroom to correct upward.
-    #                         ImprovementAgent pushes this higher as beam stabilises.
+    # target_adc:      600  — starts just above low_threshold (580), giving the
+    #                         system an achievable initial setpoint at low DAC values.
+    #                         ImprovementAgent pushes this upward as the beam stabilises.
+    #                         Previous value of 752 caused integral_error = −540 in the
+    #                         first 20 cycles (every reading of ~580 vs target 752),
+    #                         which poisoned the chronic-undershoot detector and caused
+    #                         ImprovementAgent to make aggressive parameter changes early.
     #
     # max_delta:       200  — max DAC step per cycle
     #                         200 counts * (12V / 4095) ≈ 586mV per cycle
@@ -70,7 +74,7 @@ DEFAULT_STATE: dict = {
     #                           considered still moving
     #                           set above noise floor (~3 counts after Arduino
     #                           10-sample averaging)
-    "target_adc":         752,
+    "target_adc":         600,
     "max_delta":          200,
     "spike_threshold":    800,
     "low_threshold":      580,
@@ -90,6 +94,13 @@ DEFAULT_STATE: dict = {
     # so integral_error stays valid across ImprovementAgent target changes.
     # Capped at MAX_HISTORY = 50 entries by AnalyzeAgent.
     "history": [],
+
+    # ── Decision history ──────────────────────────────────────────────────
+    # Rolling log of the last 10 decisions (action + deltas + cycle).
+    # Injected into DecisionAgent and ImprovementAgent prompts so the LLMs
+    # can see what actually happened in recent cycles and stop reasoning
+    # as if it's cycle 1.
+    "decision_history": [],
 
     # ── LLM prompt staging ────────────────────────────────────────────────
     # Throwaway strings written before each LLM call.

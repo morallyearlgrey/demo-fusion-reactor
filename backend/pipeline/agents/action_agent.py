@@ -55,11 +55,25 @@ class ActionAgent(BaseAgent):
         # bunch of if else dealing with which action to take based off action result seen in session state
         if action == "emergency_backup":
             result = set_backup()
-            result["action"] = "emergency_backup"
+            result["action"]      = "emergency_backup"
+            result["electrode_a"] = electrode_a
+            result["electrode_b"] = electrode_b
+            result["prev_a"]      = electrode_a
+            result["prev_b"]      = electrode_b
             logger.warning("ActionAgent | EMERGENCY BACKUP triggered")
 
         elif action == "do_nothing":
-            result = {"action": "do_nothing", "ok": True, "msg": "No Change Applied"}
+            result = {
+                "action":      "do_nothing",
+                "ok":          True,
+                "msg":         "No Change Applied",
+                # Always carry current electrode state so downstream LLMs
+                # never see None for electrode_a / electrode_b after a hold cycle.
+                "electrode_a": electrode_a,
+                "electrode_b": electrode_b,
+                "prev_a":      electrode_a,
+                "prev_b":      electrode_b,
+            }
 
         elif action in ("increase_both", "decrease_both", "small_adjust_up", "small_adjust_down"):
             new_a = _clamp(electrode_a + delta_a)
@@ -92,7 +106,7 @@ class ActionAgent(BaseAgent):
 
 
         elif action == "increase_b":
-            new_a = _clamp(electrode_b + abs(delta_b))
+            new_b = _clamp(electrode_b + abs(delta_b))
             result = set_electrode_b(new_b)
             result["action"] = action
             result["prev_b"] = electrode_b
@@ -101,7 +115,7 @@ class ActionAgent(BaseAgent):
 
         
         elif action == "decrease_b":
-            new_a = _clamp(electrode_b - abs(delta_b))
+            new_b = _clamp(electrode_b - abs(delta_b))
             result = set_electrode_b(new_b)
             result["action"] = action
             result["prev_b"] = electrode_b

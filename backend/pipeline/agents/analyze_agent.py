@@ -255,6 +255,14 @@ class AnalyzeAgent(BaseAgent):
             settle_timeout=settle_timeout,
         )
 
+        # Beam search override: if the beam hasn't been found yet (is_low=True),
+        # force is_settling=False. During a continuous upward sweep the settle timer
+        # resets every cycle (because ActionAgent stamps last_command_cycle each time),
+        # which would lock is_settling=True forever and confuse the DecisionAgent.
+        # The beam search phase doesn't need settling logic — just keep sweeping.
+        if raw_adc < low_threshold:
+            settling = False
+
         # Did last command actually work?
         effectiveness = command_effectiveness(last_action, raw_adc, prev_adc)
 
