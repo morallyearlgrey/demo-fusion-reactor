@@ -1,23 +1,30 @@
 from __future__ import annotations
- 
+
 import asyncio
 import logging
 import os
 import signal
 import sys
 from datetime import datetime
- 
+
 from google.adk.agents import SequentialAgent
 from google.adk.runners import Runner
 from google.adk.sessions import InMemorySessionService
- 
+
 from pipeline.agents.analyze_agent import AnalyzeAgent
 from pipeline.agents.decision_agent import DecisionAgent
 from pipeline.agents.action_agent import ActionAgent
 from pipeline.agents.improvement_agent import ImprovementAgent
 
 from pipeline.tools.reactor_tools import init_tools, set_ai_mode, set_backup
- 
+
+try:
+    from websocket_bridge import broadcast_state
+    WEBSOCKET_ENABLED = True
+except ImportError:
+    WEBSOCKET_ENABLED = False
+    logger.warning("WebSocket bridge not available — frontend updates disabled")
+
 logger = logging.getLogger(__name__)
  
 
@@ -191,7 +198,29 @@ class FusionPipelineRunner:
                     text = getattr(part, "text", None)
                     if text and text.strip():
                         logger.debug("[%s] %s", author, text.strip()[:200])
- 
+
+        # After cycle completes, broadcast state to WebSocket clients
+        await self._broadcast_state()
+
+    # broadcast current state to WebSocket clients
+    async def _broadcast_state(self):
+        if not WEBSOCKET_ENABLED:
+            return
+
+        try:
+            # Get current session state
+            session = await self._session_service.get_session(
+                app_name=self.APP_NAME,
+                user_id=self.USER_ID,
+                session_id=self.SESSION_ID
+            )
+            state = session.state if session else {}
+
+            # Broadcast to WebSocket clients
+            broadcast_state(state)
+        except Exception as e:
+            logger.debug(f"Could not broadcast state: {e}")
+
     # execute infinite full cycle 
     async def run_forever(self):
         init_tools(self._bridge)

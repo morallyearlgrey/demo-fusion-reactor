@@ -24,7 +24,7 @@ logger = logging.getLogger(__name__)
 # 12 v max
 TARGET_ADC = 752
 MAX_DELTA = 200
-SPIKE_THRESHOLD = 800 # below photo max of 820
+SPIKE_THRESHOLD = 900 # below photo max of 820
 LOW_THRESHOLD = 580 # above photo max of 550
 
 SETTLE_TIMEOUT = 8 # how many cycles to wait before forcing decision

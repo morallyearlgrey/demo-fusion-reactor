@@ -1,1 +1,6 @@
-# hi
+fastapi
+uvicorn[standard]
+websockets
+python-dotenv
+pyserial
+google-adk

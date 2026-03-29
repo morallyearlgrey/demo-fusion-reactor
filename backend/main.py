@@ -189,6 +189,14 @@ def parse_args() -> argparse.Namespace:
 async def run(args: argparse.Namespace) -> None:
     from pipeline.fusion_pipeline import FusionPipelineRunner, DEFAULT_STATE
 
+    # Start WebSocket server for frontend
+    try:
+        from websocket_bridge import start_websocket_server
+        start_websocket_server(host="0.0.0.0", port=8000)
+        logger.info("WebSocket server started for frontend connection")
+    except Exception as e:
+        logger.warning(f"Could not start WebSocket server: {e}")
+
     # Override DEFAULT_STATE with CLI args
     # Only override keys that CLI args explicitly control
     # Everything else stays at the DEFAULT_STATE values
