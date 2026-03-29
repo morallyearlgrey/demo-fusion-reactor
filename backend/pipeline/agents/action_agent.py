@@ -4,14 +4,15 @@ from typing import AsyncGenerator
 from google.adk.agents import BaseAgent
 from google.adk.agents.invocation_context import InvocationContext
 from google.adk.events import Event
+from google.genai.types import Content, Part
 
-from pipeline.tools.reactor_tools import {
+from pipeline.tools.reactor_tools import (
     set_electrodes,
     set_electrode_a,
     set_electrode_b,
     set_backup,
     set_ai_mode,
-}
+)
 
 logger = logging.getLogger(__name__)
 
@@ -26,11 +27,11 @@ def _clamp(value: int) -> int:
 # class definition
 class ActionAgent(BaseAgent):
 
-    name: str = "action_agent"
-    description: str = "Executes electrode adjustments based on the decision agent output."
+    # name: str = "action_agent"
+    # description: str = "Executes electrode adjustments based on the decision agent output."
 
     def __init__(self):
-        super().__init__(name=self.name, description = self.description)
+        super().__init__(name="action_agent", description = "Executes electrode adjustments based on the decision agent output.")
 
     async def _run_async_impl(self, ctx: InvocationContext) -> AsyncGenerator[Event, None]:
 
@@ -41,7 +42,7 @@ class ActionAgent(BaseAgent):
         delta_b = int(decision.get("electrode_b_delta", 0))
         max_delta = int(ctx.session.state.get("max_delta", 200))
         electrode_a = int(ctx.session.state.get("electrode_a", 0))
-        electrode_b = int(ctx.session.state.get("electrode_a", 0))
+        electrode_b = int(ctx.session.state.get("electrode_b", 0))
 
         # safety clamp as requested by llm
         delta_a = max(-max_delta, min(max_delta, delta_a))
@@ -51,7 +52,7 @@ class ActionAgent(BaseAgent):
         result: dict = {"action": action, "ok": False}
 
         # bunch of if else dealing with which action to take based off action result seen in session state
-        if action == " emergency_backup":
+        if action == "emergency_backup":
             result = set_backup()
             result["action"] = "emergency_backup"
             logger.warning("ActionAgent | EMERGENCY BACKUP triggered")
@@ -69,13 +70,16 @@ class ActionAgent(BaseAgent):
 
             ctx.session.state["electrode_a"] = new_a
             ctx.session.state["electrode_b"] = new_b
-        
+            ctx.session.state["last_command_cycle"] = ctx.session.state.get("cycle_count") 
+
         elif action == "increase_a":
             new_a = _clamp(electrode_a+ abs(delta_a))
             result = set_electrode_a(new_a)
             result["action"] = action
             result["prev_a"] = electrode_a
             ctx.session.state["electrode_a"] = new_a
+            ctx.session.state["last_command_cycle"] = ctx.session.state.get("cycle_count")  
+
         
         elif action == "decrease_a":
             new_a = _clamp(electrode_a - abs(delta_a))
@@ -83,6 +87,8 @@ class ActionAgent(BaseAgent):
             result["action"] = action
             result["prev_a"] = electrode_a
             ctx.session.state["electrode_a"] = new_a
+            ctx.session.state["last_command_cycle"] = ctx.session.state.get("cycle_count")  
+
 
         elif action == "increase_b":
             new_a = _clamp(electrode_b + abs(delta_b))
@@ -90,6 +96,8 @@ class ActionAgent(BaseAgent):
             result["action"] = action
             result["prev_b"] = electrode_b
             ctx.session.state["electrode_b"] = new_b
+            ctx.session.state["last_command_cycle"] = ctx.session.state.get("cycle_count")  
+
         
         elif action == "decrease_b":
             new_a = _clamp(electrode_b - abs(delta_b))
@@ -97,6 +105,8 @@ class ActionAgent(BaseAgent):
             result["action"] = action
             result["prev_b"] = electrode_b
             ctx.session.state["electrode_b"] = new_b
+            ctx.session.state["last_command_cycle"] = ctx.session.state.get("cycle_count")  
+
         
         elif action == "balance_electrodes":
             avg = _clamp((electrode_a + electrode_b) // 2)
@@ -106,6 +116,8 @@ class ActionAgent(BaseAgent):
             result["prev_b"] = electrode_b
             ctx.session.state["electrode_a"] = avg
             ctx.session.state["electrode_b"] = avg
+            ctx.session.state["last_command_cycle"] = ctx.session.state.get("cycle_count")  
+
         
         else:
             logger.warning("ActionAgent | Unknown action: %s — doing nothing", action)
@@ -122,15 +134,13 @@ class ActionAgent(BaseAgent):
 
         yield Event(
             author=self.name,
-            content={
-                "parts": [{
-                    "text": (
-                        f"[ActionAgent] Executed '{action}' | "
-                        f"electrode_a: {electrode_a} → {ctx.session.state.get('electrode_a', electrode_a)} | "
-                        f"electrode_b: {electrode_b} → {ctx.session.state.get('electrode_b', electrode_b)} | "
-                        f"ok={result.get('ok')}"
-                    )
-                }]
-            },
-        )
+            content=Content(parts=[
+                Part(text=(
+                    f"[ActionAgent] Executed '{action}' | "
+                    f"electrode_a: {electrode_a} → {ctx.session.state.get('electrode_a', electrode_a)} | "
+                    f"electrode_b: {electrode_b} → {ctx.session.state.get('electrode_b', electrode_b)} | "
+                    f"ok={result.get('ok')}"
+        ))
+    ])
+)
 
