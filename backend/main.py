@@ -22,6 +22,9 @@ import logging
 import os
 import signal
 import sys
+from dotenv import load_dotenv
+
+load_dotenv(".env")
 
 # ── Logging setup ─────────────────────────────────────────────────────────────
 os.makedirs("logs", exist_ok=True)

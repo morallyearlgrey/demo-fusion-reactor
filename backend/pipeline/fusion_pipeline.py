@@ -11,7 +11,11 @@ from google.adk.agents import SequentialAgent
 from google.adk.runners import Runner
 from google.adk.sessions import InMemorySessionService
  
-from pipeline.agents import AnalyzeAgent, DecisionAgent, ActionAgent, ImprovementAgent
+from pipeline.agents.analyze_agent import AnalyzeAgent
+from pipeline.agents.decision_agent import DecisionAgent
+from pipeline.agents.action_agent import ActionAgent
+from pipeline.agents.improvement_agent import ImprovementAgent
+
 from pipeline.tools.reactor_tools import init_tools, set_ai_mode, set_backup
  
 logger = logging.getLogger(__name__)
@@ -137,8 +141,9 @@ class FusionPipelineRunner:
             session_service=self._session_service,
         )
 
- 
-    # sets the session state loll and starts the adk sht
+
+
+    # sets the session state and starts the adk session
     async def _create_session(self):
         await self._session_service.create_session(
             app_name=self.APP_NAME,
@@ -148,30 +153,33 @@ class FusionPipelineRunner:
         )
         logger.info("ADK session created: %s / %s", self.USER_ID, self.SESSION_ID)
  
-    # execute one full cycle 
+    # execute one full cycle
     async def _run_one_cycle(self, cycle: int):
         from google.genai.types import Content, Part
- 
-       
-        # adk is funky as hell and needs a user msg to trigger
-        # uses a single clock tick message, all good bc state has stuff we need
+
+        # ADK needs a user message to trigger the pipeline each cycle.
+        # All real state is carried in the session; this is just the clock tick.
         tick_msg = Content(
             parts=[Part(text=f"cycle={cycle} ts={datetime.utcnow().isoformat()}")],
             role="user",
         )
- 
+
+        # State persistence works via event.actions.state_delta, not via manual
+        # session manipulation. Each BaseAgent yields an Event that carries a
+        # state_delta dict — ADK's append_event flushes those writes back to the
+        # storage session automatically. No pre/post session mutation needed here.
         async for event in self._runner.run_async(
             user_id=self.USER_ID,
             session_id=self.SESSION_ID,
             new_message=tick_msg,
         ):
-            # log significant events
             author = getattr(event, "author", "?")
             if hasattr(event, "content") and event.content:
-                parts = event.content.get("parts", [])
+                parts = event.content.parts or []
                 for part in parts:
-                    if "text" in part and part["text"].strip():
-                        logger.debug("[%s] %s", author, part["text"].strip()[:200])
+                    text = getattr(part, "text", None)
+                    if text and text.strip():
+                        logger.debug("[%s] %s", author, text.strip()[:200])
  
     # execute infinite full cycle 
     async def run_forever(self):
@@ -192,6 +200,7 @@ class FusionPipelineRunner:
                 logger.info("── Cycle %d ──────────────────────────────────", cycle)
                 try:
                     await self._run_one_cycle(cycle)
+                    
                     consecutive_errors = 0   # reset on any successful cycle
                 except asyncio.CancelledError:
                     raise

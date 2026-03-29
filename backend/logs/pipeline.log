@@ -1,0 +1,1389 @@
+2026-03-28 23:34:59,531 [WARNING] __main__: Neither GOOGLE_API_KEY nor GOOGLE_APPLICATION_CREDENTIALS is set. DecisionAgent and ImprovementAgent (Gemini LLM calls) will fail. Set GOOGLE_API_KEY before running: export GOOGLE_API_KEY=your-key
+2026-03-28 23:35:24,574 [WARNING] __main__: Neither GOOGLE_API_KEY nor GOOGLE_APPLICATION_CREDENTIALS is set. DecisionAgent and ImprovementAgent (Gemini LLM calls) will fail. Set GOOGLE_API_KEY before running: export GOOGLE_API_KEY=your-key
+2026-03-28 23:39:58,810 [WARNING] __main__: Neither GOOGLE_API_KEY nor GOOGLE_APPLICATION_CREDENTIALS is set. DecisionAgent and ImprovementAgent (Gemini LLM calls) will fail. Set GOOGLE_API_KEY before running: export GOOGLE_API_KEY=your-key
+2026-03-28 23:40:00,840 [INFO] __main__: Starting in SIMULATE mode — no Arduino required
+2026-03-28 23:40:00,840 [INFO] __main__: [SIM] Simulated bridge connected
+2026-03-28 23:40:00,840 [INFO] pipeline.fusion_pipeline: ADK session created: system / main_session
+2026-03-28 23:40:00,841 [INFO] __main__: [SIM] switched to ai mode
+2026-03-28 23:40:00,841 [INFO] pipeline.fusion_pipeline: Arduino switched to AI mode
+2026-03-28 23:40:00,841 [INFO] pipeline.fusion_pipeline: === Fusion Pipeline Started ===
+2026-03-28 23:40:00,841 [INFO] pipeline.fusion_pipeline: ── Cycle 1 ──────────────────────────────────
+2026-03-28 23:40:01,845 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=564 ewma=564.0 sse=-188.0 int_err=-188 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-28 23:40:01,848 [ERROR] pipeline.fusion_pipeline: Cycle 1 error (1/5): 'Content' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 198, in run_forever
+    await self._run_one_cycle(cycle)
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 175, in _run_one_cycle
+    parts = event.content.get("parts", [])
+            ^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'Content' object has no attribute 'get'
+2026-03-28 23:40:03,854 [INFO] pipeline.fusion_pipeline: ── Cycle 2 ──────────────────────────────────
+2026-03-28 23:40:04,858 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=571 ewma=571.0 sse=-181.0 int_err=-181 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-28 23:40:04,859 [ERROR] pipeline.fusion_pipeline: Cycle 2 error (2/5): 'Content' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 198, in run_forever
+    await self._run_one_cycle(cycle)
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 175, in _run_one_cycle
+    parts = event.content.get("parts", [])
+            ^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'Content' object has no attribute 'get'
+2026-03-28 23:40:06,861 [INFO] pipeline.fusion_pipeline: ── Cycle 3 ──────────────────────────────────
+2026-03-28 23:40:07,862 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=567 ewma=567.0 sse=-185.0 int_err=-185 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-28 23:40:07,863 [ERROR] pipeline.fusion_pipeline: Cycle 3 error (3/5): 'Content' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 198, in run_forever
+    await self._run_one_cycle(cycle)
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 175, in _run_one_cycle
+    parts = event.content.get("parts", [])
+            ^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'Content' object has no attribute 'get'
+2026-03-28 23:40:09,867 [INFO] pipeline.fusion_pipeline: ── Cycle 4 ──────────────────────────────────
+2026-03-28 23:40:10,872 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=564 ewma=564.0 sse=-188.0 int_err=-188 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-28 23:40:10,873 [ERROR] pipeline.fusion_pipeline: Cycle 4 error (4/5): 'Content' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 198, in run_forever
+    await self._run_one_cycle(cycle)
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 175, in _run_one_cycle
+    parts = event.content.get("parts", [])
+            ^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'Content' object has no attribute 'get'
+2026-03-28 23:40:12,876 [INFO] pipeline.fusion_pipeline: ── Cycle 5 ──────────────────────────────────
+2026-03-28 23:40:13,880 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=567 ewma=567.0 sse=-185.0 int_err=-185 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-28 23:40:13,881 [ERROR] pipeline.fusion_pipeline: Cycle 5 error (5/5): 'Content' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 198, in run_forever
+    await self._run_one_cycle(cycle)
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 175, in _run_one_cycle
+    parts = event.content.get("parts", [])
+            ^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'Content' object has no attribute 'get'
+2026-03-28 23:40:13,883 [CRITICAL] pipeline.fusion_pipeline: 5 consecutive failures — unrecoverable, shutting down
+2026-03-28 23:40:13,883 [INFO] pipeline.fusion_pipeline: Shutting down — switching Arduino to auto/backup mode
+2026-03-28 23:40:13,883 [INFO] __main__: [SIM] switched to auto mode
+2026-03-28 23:40:13,883 [INFO] pipeline.fusion_pipeline: === Fusion Pipeline Stopped ===
+2026-03-28 23:40:13,883 [INFO] __main__: [SIM] Simulated bridge disconnected
+2026-03-28 23:41:57,375 [WARNING] __main__: Neither GOOGLE_API_KEY nor GOOGLE_APPLICATION_CREDENTIALS is set. DecisionAgent and ImprovementAgent (Gemini LLM calls) will fail. Set GOOGLE_API_KEY before running: export GOOGLE_API_KEY=your-key
+2026-03-28 23:41:59,796 [INFO] __main__: Starting in SIMULATE mode — no Arduino required
+2026-03-28 23:41:59,796 [INFO] __main__: [SIM] Simulated bridge connected
+2026-03-28 23:41:59,797 [INFO] pipeline.fusion_pipeline: ADK session created: system / main_session
+2026-03-28 23:41:59,797 [INFO] __main__: [SIM] switched to ai mode
+2026-03-28 23:41:59,797 [INFO] pipeline.fusion_pipeline: Arduino switched to AI mode
+2026-03-28 23:41:59,797 [INFO] pipeline.fusion_pipeline: === Fusion Pipeline Started ===
+2026-03-28 23:41:59,797 [INFO] pipeline.fusion_pipeline: ── Cycle 1 ──────────────────────────────────
+2026-03-28 23:42:00,799 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=563 ewma=563.0 sse=-189.0 int_err=-189 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-28 23:42:00,799 [ERROR] pipeline.fusion_pipeline: Cycle 1 error (1/5): 'Content' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 198, in run_forever
+    await self._run_one_cycle(cycle)
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 175, in _run_one_cycle
+    parts = event.content.get("parts", [])
+            ^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'Content' object has no attribute 'get'
+2026-03-28 23:42:02,803 [INFO] pipeline.fusion_pipeline: ── Cycle 2 ──────────────────────────────────
+2026-03-28 23:42:03,807 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=572 ewma=572.0 sse=-180.0 int_err=-180 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-28 23:42:03,808 [ERROR] pipeline.fusion_pipeline: Cycle 2 error (2/5): 'Content' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 198, in run_forever
+    await self._run_one_cycle(cycle)
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 175, in _run_one_cycle
+    parts = event.content.get("parts", [])
+            ^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'Content' object has no attribute 'get'
+2026-03-28 23:42:05,812 [INFO] pipeline.fusion_pipeline: ── Cycle 3 ──────────────────────────────────
+2026-03-28 23:42:06,819 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=563 ewma=563.0 sse=-189.0 int_err=-189 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-28 23:42:06,820 [ERROR] pipeline.fusion_pipeline: Cycle 3 error (3/5): 'Content' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 198, in run_forever
+    await self._run_one_cycle(cycle)
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 175, in _run_one_cycle
+    parts = event.content.get("parts", [])
+            ^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'Content' object has no attribute 'get'
+2026-03-28 23:42:08,825 [INFO] pipeline.fusion_pipeline: ── Cycle 4 ──────────────────────────────────
+2026-03-28 23:42:09,831 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=566 ewma=566.0 sse=-186.0 int_err=-186 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-28 23:42:09,832 [ERROR] pipeline.fusion_pipeline: Cycle 4 error (4/5): 'Content' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 198, in run_forever
+    await self._run_one_cycle(cycle)
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 175, in _run_one_cycle
+    parts = event.content.get("parts", [])
+            ^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'Content' object has no attribute 'get'
+2026-03-28 23:42:11,836 [INFO] pipeline.fusion_pipeline: ── Cycle 5 ──────────────────────────────────
+2026-03-28 23:42:12,840 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=568 ewma=568.0 sse=-184.0 int_err=-184 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-28 23:42:12,842 [ERROR] pipeline.fusion_pipeline: Cycle 5 error (5/5): 'Content' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 198, in run_forever
+    await self._run_one_cycle(cycle)
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 175, in _run_one_cycle
+    parts = event.content.get("parts", [])
+            ^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'Content' object has no attribute 'get'
+2026-03-28 23:42:12,843 [CRITICAL] pipeline.fusion_pipeline: 5 consecutive failures — unrecoverable, shutting down
+2026-03-28 23:42:12,843 [INFO] pipeline.fusion_pipeline: Shutting down — switching Arduino to auto/backup mode
+2026-03-28 23:42:12,843 [INFO] __main__: [SIM] switched to auto mode
+2026-03-28 23:42:12,844 [INFO] pipeline.fusion_pipeline: === Fusion Pipeline Stopped ===
+2026-03-28 23:42:12,844 [INFO] __main__: [SIM] Simulated bridge disconnected
+2026-03-28 23:42:49,867 [WARNING] __main__: Neither GOOGLE_API_KEY nor GOOGLE_APPLICATION_CREDENTIALS is set. DecisionAgent and ImprovementAgent (Gemini LLM calls) will fail. Set GOOGLE_API_KEY before running: export GOOGLE_API_KEY=your-key
+2026-03-28 23:42:52,095 [INFO] __main__: Starting in SIMULATE mode — no Arduino required
+2026-03-28 23:42:52,095 [INFO] __main__: [SIM] Simulated bridge connected
+2026-03-28 23:42:52,096 [INFO] pipeline.fusion_pipeline: ADK session created: system / main_session
+2026-03-28 23:42:52,096 [INFO] __main__: [SIM] switched to ai mode
+2026-03-28 23:42:52,096 [INFO] pipeline.fusion_pipeline: Arduino switched to AI mode
+2026-03-28 23:42:52,096 [INFO] pipeline.fusion_pipeline: === Fusion Pipeline Started ===
+2026-03-28 23:42:52,096 [INFO] pipeline.fusion_pipeline: ── Cycle 1 ──────────────────────────────────
+2026-03-28 23:42:53,098 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=565 ewma=565.0 sse=-187.0 int_err=-187 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-28 23:42:53,100 [ERROR] pipeline.fusion_pipeline: Cycle 1 error (1/5): 'Content' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 198, in run_forever
+    await self._run_one_cycle(cycle)
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 175, in _run_one_cycle
+    parts = event.content.get("parts", [])
+            ^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'Content' object has no attribute 'get'
+2026-03-28 23:42:55,105 [INFO] pipeline.fusion_pipeline: ── Cycle 2 ──────────────────────────────────
+2026-03-28 23:42:56,108 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=567 ewma=567.0 sse=-185.0 int_err=-185 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-28 23:42:56,110 [ERROR] pipeline.fusion_pipeline: Cycle 2 error (2/5): 'Content' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 198, in run_forever
+    await self._run_one_cycle(cycle)
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 175, in _run_one_cycle
+    parts = event.content.get("parts", [])
+            ^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'Content' object has no attribute 'get'
+2026-03-28 23:42:58,113 [INFO] pipeline.fusion_pipeline: ── Cycle 3 ──────────────────────────────────
+2026-03-28 23:42:59,116 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=564 ewma=564.0 sse=-188.0 int_err=-188 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-28 23:42:59,117 [ERROR] pipeline.fusion_pipeline: Cycle 3 error (3/5): 'Content' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 198, in run_forever
+    await self._run_one_cycle(cycle)
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 175, in _run_one_cycle
+    parts = event.content.get("parts", [])
+            ^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'Content' object has no attribute 'get'
+2026-03-28 23:43:01,120 [INFO] pipeline.fusion_pipeline: ── Cycle 4 ──────────────────────────────────
+2026-03-28 23:43:02,124 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=565 ewma=565.0 sse=-187.0 int_err=-187 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-28 23:43:02,125 [ERROR] pipeline.fusion_pipeline: Cycle 4 error (4/5): 'Content' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 198, in run_forever
+    await self._run_one_cycle(cycle)
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 175, in _run_one_cycle
+    parts = event.content.get("parts", [])
+            ^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'Content' object has no attribute 'get'
+2026-03-28 23:43:04,128 [INFO] pipeline.fusion_pipeline: ── Cycle 5 ──────────────────────────────────
+2026-03-28 23:43:05,132 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=566 ewma=566.0 sse=-186.0 int_err=-186 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-28 23:43:05,133 [ERROR] pipeline.fusion_pipeline: Cycle 5 error (5/5): 'Content' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 198, in run_forever
+    await self._run_one_cycle(cycle)
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 175, in _run_one_cycle
+    parts = event.content.get("parts", [])
+            ^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'Content' object has no attribute 'get'
+2026-03-28 23:43:05,134 [CRITICAL] pipeline.fusion_pipeline: 5 consecutive failures — unrecoverable, shutting down
+2026-03-28 23:43:05,134 [INFO] pipeline.fusion_pipeline: Shutting down — switching Arduino to auto/backup mode
+2026-03-28 23:43:05,134 [INFO] __main__: [SIM] switched to auto mode
+2026-03-28 23:43:05,135 [INFO] pipeline.fusion_pipeline: === Fusion Pipeline Stopped ===
+2026-03-28 23:43:05,135 [INFO] __main__: [SIM] Simulated bridge disconnected
+2026-03-28 23:44:04,932 [WARNING] __main__: Neither GOOGLE_API_KEY nor GOOGLE_APPLICATION_CREDENTIALS is set. DecisionAgent and ImprovementAgent (Gemini LLM calls) will fail. Set GOOGLE_API_KEY before running: export GOOGLE_API_KEY=your-key
+2026-03-28 23:44:07,226 [INFO] __main__: Starting in SIMULATE mode — no Arduino required
+2026-03-28 23:44:07,227 [INFO] __main__: [SIM] Simulated bridge connected
+2026-03-28 23:44:07,227 [INFO] pipeline.fusion_pipeline: ADK session created: system / main_session
+2026-03-28 23:44:07,228 [INFO] __main__: [SIM] switched to ai mode
+2026-03-28 23:44:07,228 [INFO] pipeline.fusion_pipeline: Arduino switched to AI mode
+2026-03-28 23:44:07,228 [INFO] pipeline.fusion_pipeline: === Fusion Pipeline Started ===
+2026-03-28 23:44:07,228 [INFO] pipeline.fusion_pipeline: ── Cycle 1 ──────────────────────────────────
+2026-03-28 23:44:08,232 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=570 ewma=570.0 sse=-182.0 int_err=-182 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-28 23:44:08,244 [ERROR] pipeline.fusion_pipeline: Cycle 1 error (1/5): 'Content' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 198, in run_forever
+    await self._run_one_cycle(cycle)
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 175, in _run_one_cycle
+    parts = event.content.get("parts", [])
+            ^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'Content' object has no attribute 'get'
+2026-03-28 23:44:10,251 [INFO] pipeline.fusion_pipeline: ── Cycle 2 ──────────────────────────────────
+2026-03-28 23:44:11,259 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=562 ewma=562.0 sse=-190.0 int_err=-190 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-28 23:44:11,275 [ERROR] pipeline.fusion_pipeline: Cycle 2 error (2/5): 'Content' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 198, in run_forever
+    await self._run_one_cycle(cycle)
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 175, in _run_one_cycle
+    parts = event.content.get("parts", [])
+            ^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'Content' object has no attribute 'get'
+2026-03-28 23:44:13,298 [INFO] pipeline.fusion_pipeline: ── Cycle 3 ──────────────────────────────────
+2026-03-28 23:44:14,302 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=563 ewma=563.0 sse=-189.0 int_err=-189 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-28 23:44:14,303 [ERROR] pipeline.fusion_pipeline: Cycle 3 error (3/5): 'Content' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 198, in run_forever
+    await self._run_one_cycle(cycle)
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 175, in _run_one_cycle
+    parts = event.content.get("parts", [])
+            ^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'Content' object has no attribute 'get'
+2026-03-28 23:44:16,306 [INFO] pipeline.fusion_pipeline: ── Cycle 4 ──────────────────────────────────
+2026-03-28 23:44:17,309 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=569 ewma=569.0 sse=-183.0 int_err=-183 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-28 23:44:17,310 [ERROR] pipeline.fusion_pipeline: Cycle 4 error (4/5): 'Content' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 198, in run_forever
+    await self._run_one_cycle(cycle)
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 175, in _run_one_cycle
+    parts = event.content.get("parts", [])
+            ^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'Content' object has no attribute 'get'
+2026-03-28 23:44:19,313 [INFO] pipeline.fusion_pipeline: ── Cycle 5 ──────────────────────────────────
+2026-03-28 23:44:20,316 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=567 ewma=567.0 sse=-185.0 int_err=-185 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-28 23:44:20,317 [ERROR] pipeline.fusion_pipeline: Cycle 5 error (5/5): 'Content' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 198, in run_forever
+    await self._run_one_cycle(cycle)
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 175, in _run_one_cycle
+    parts = event.content.get("parts", [])
+            ^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'Content' object has no attribute 'get'
+2026-03-28 23:44:20,318 [CRITICAL] pipeline.fusion_pipeline: 5 consecutive failures — unrecoverable, shutting down
+2026-03-28 23:44:20,318 [INFO] pipeline.fusion_pipeline: Shutting down — switching Arduino to auto/backup mode
+2026-03-28 23:44:20,318 [INFO] __main__: [SIM] switched to auto mode
+2026-03-28 23:44:20,319 [INFO] pipeline.fusion_pipeline: === Fusion Pipeline Stopped ===
+2026-03-28 23:44:20,319 [INFO] __main__: [SIM] Simulated bridge disconnected
+2026-03-28 23:44:49,541 [INFO] __main__: Starting in SIMULATE mode — no Arduino required
+2026-03-28 23:44:49,541 [INFO] __main__: [SIM] Simulated bridge connected
+2026-03-28 23:44:49,543 [INFO] pipeline.fusion_pipeline: ADK session created: system / main_session
+2026-03-28 23:44:49,543 [INFO] __main__: [SIM] switched to ai mode
+2026-03-28 23:44:49,543 [INFO] pipeline.fusion_pipeline: Arduino switched to AI mode
+2026-03-28 23:44:49,543 [INFO] pipeline.fusion_pipeline: === Fusion Pipeline Started ===
+2026-03-28 23:44:49,543 [INFO] pipeline.fusion_pipeline: ── Cycle 1 ──────────────────────────────────
+2026-03-28 23:44:50,548 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=568 ewma=568.0 sse=-184.0 int_err=-184 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-28 23:44:50,549 [ERROR] pipeline.fusion_pipeline: Cycle 1 error (1/5): 'Content' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 198, in run_forever
+    await self._run_one_cycle(cycle)
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 175, in _run_one_cycle
+    parts = event.content.get("parts", [])
+            ^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'Content' object has no attribute 'get'
+2026-03-28 23:44:52,556 [INFO] pipeline.fusion_pipeline: ── Cycle 2 ──────────────────────────────────
+2026-03-28 23:44:53,559 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=568 ewma=568.0 sse=-184.0 int_err=-184 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-28 23:44:53,560 [ERROR] pipeline.fusion_pipeline: Cycle 2 error (2/5): 'Content' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 198, in run_forever
+    await self._run_one_cycle(cycle)
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 175, in _run_one_cycle
+    parts = event.content.get("parts", [])
+            ^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'Content' object has no attribute 'get'
+2026-03-28 23:44:55,562 [INFO] pipeline.fusion_pipeline: ── Cycle 3 ──────────────────────────────────
+2026-03-28 23:44:56,565 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=565 ewma=565.0 sse=-187.0 int_err=-187 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-28 23:44:56,566 [ERROR] pipeline.fusion_pipeline: Cycle 3 error (3/5): 'Content' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 198, in run_forever
+    await self._run_one_cycle(cycle)
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 175, in _run_one_cycle
+    parts = event.content.get("parts", [])
+            ^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'Content' object has no attribute 'get'
+2026-03-28 23:44:58,592 [INFO] pipeline.fusion_pipeline: ── Cycle 4 ──────────────────────────────────
+2026-03-28 23:44:59,610 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=564 ewma=564.0 sse=-188.0 int_err=-188 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-28 23:44:59,610 [ERROR] pipeline.fusion_pipeline: Cycle 4 error (4/5): 'Content' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 198, in run_forever
+    await self._run_one_cycle(cycle)
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 175, in _run_one_cycle
+    parts = event.content.get("parts", [])
+            ^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'Content' object has no attribute 'get'
+2026-03-28 23:45:01,613 [INFO] pipeline.fusion_pipeline: ── Cycle 5 ──────────────────────────────────
+2026-03-28 23:45:02,615 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=567 ewma=567.0 sse=-185.0 int_err=-185 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-28 23:45:02,617 [ERROR] pipeline.fusion_pipeline: Cycle 5 error (5/5): 'Content' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 198, in run_forever
+    await self._run_one_cycle(cycle)
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 175, in _run_one_cycle
+    parts = event.content.get("parts", [])
+            ^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'Content' object has no attribute 'get'
+2026-03-28 23:45:02,617 [CRITICAL] pipeline.fusion_pipeline: 5 consecutive failures — unrecoverable, shutting down
+2026-03-28 23:45:02,617 [INFO] pipeline.fusion_pipeline: Shutting down — switching Arduino to auto/backup mode
+2026-03-28 23:45:02,618 [INFO] __main__: [SIM] switched to auto mode
+2026-03-28 23:45:02,618 [INFO] pipeline.fusion_pipeline: === Fusion Pipeline Stopped ===
+2026-03-28 23:45:02,618 [INFO] __main__: [SIM] Simulated bridge disconnected
+2026-03-28 23:51:59,633 [INFO] __main__: Starting in SIMULATE mode — no Arduino required
+2026-03-28 23:51:59,634 [INFO] __main__: [SIM] Simulated bridge connected
+2026-03-28 23:51:59,634 [INFO] pipeline.fusion_pipeline: ADK session created: system / main_session
+2026-03-28 23:51:59,634 [INFO] __main__: [SIM] switched to ai mode
+2026-03-28 23:51:59,634 [INFO] pipeline.fusion_pipeline: Arduino switched to AI mode
+2026-03-28 23:51:59,634 [INFO] pipeline.fusion_pipeline: === Fusion Pipeline Started ===
+2026-03-28 23:51:59,634 [INFO] pipeline.fusion_pipeline: ── Cycle 1 ──────────────────────────────────
+2026-03-28 23:52:00,635 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=568 ewma=568.0 sse=-184.0 int_err=-184 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-28 23:52:00,636 [ERROR] pipeline.fusion_pipeline: Cycle 1 error (1/5): 'Content' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 198, in run_forever
+    await self._run_one_cycle(cycle)
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 175, in _run_one_cycle
+    parts = event.content.get("parts", [])
+            ^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'Content' object has no attribute 'get'
+2026-03-28 23:52:02,640 [INFO] pipeline.fusion_pipeline: ── Cycle 2 ──────────────────────────────────
+2026-03-28 23:52:03,643 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=567 ewma=567.0 sse=-185.0 int_err=-185 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-28 23:52:03,644 [ERROR] pipeline.fusion_pipeline: Cycle 2 error (2/5): 'Content' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 198, in run_forever
+    await self._run_one_cycle(cycle)
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 175, in _run_one_cycle
+    parts = event.content.get("parts", [])
+            ^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'Content' object has no attribute 'get'
+2026-03-28 23:52:05,648 [INFO] pipeline.fusion_pipeline: ── Cycle 3 ──────────────────────────────────
+2026-03-28 23:52:06,655 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=563 ewma=563.0 sse=-189.0 int_err=-189 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-28 23:52:06,656 [ERROR] pipeline.fusion_pipeline: Cycle 3 error (3/5): 'Content' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 198, in run_forever
+    await self._run_one_cycle(cycle)
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 175, in _run_one_cycle
+    parts = event.content.get("parts", [])
+            ^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'Content' object has no attribute 'get'
+2026-03-28 23:52:08,660 [INFO] pipeline.fusion_pipeline: ── Cycle 4 ──────────────────────────────────
+2026-03-28 23:52:09,664 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=565 ewma=565.0 sse=-187.0 int_err=-187 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-28 23:52:09,665 [ERROR] pipeline.fusion_pipeline: Cycle 4 error (4/5): 'Content' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 198, in run_forever
+    await self._run_one_cycle(cycle)
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 175, in _run_one_cycle
+    parts = event.content.get("parts", [])
+            ^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'Content' object has no attribute 'get'
+2026-03-28 23:52:11,668 [INFO] pipeline.fusion_pipeline: ── Cycle 5 ──────────────────────────────────
+2026-03-28 23:52:12,672 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=565 ewma=565.0 sse=-187.0 int_err=-187 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-28 23:52:12,673 [ERROR] pipeline.fusion_pipeline: Cycle 5 error (5/5): 'Content' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 198, in run_forever
+    await self._run_one_cycle(cycle)
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 175, in _run_one_cycle
+    parts = event.content.get("parts", [])
+            ^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'Content' object has no attribute 'get'
+2026-03-28 23:52:12,675 [CRITICAL] pipeline.fusion_pipeline: 5 consecutive failures — unrecoverable, shutting down
+2026-03-28 23:52:12,675 [INFO] pipeline.fusion_pipeline: Shutting down — switching Arduino to auto/backup mode
+2026-03-28 23:52:12,675 [INFO] __main__: [SIM] switched to auto mode
+2026-03-28 23:52:12,675 [INFO] pipeline.fusion_pipeline: === Fusion Pipeline Stopped ===
+2026-03-28 23:52:12,675 [INFO] __main__: [SIM] Simulated bridge disconnected
+2026-03-28 23:53:54,884 [INFO] __main__: Starting in SIMULATE mode — no Arduino required
+2026-03-28 23:53:54,884 [INFO] __main__: [SIM] Simulated bridge connected
+2026-03-28 23:53:54,885 [INFO] pipeline.fusion_pipeline: ADK session created: system / main_session
+2026-03-28 23:53:54,885 [INFO] __main__: [SIM] switched to ai mode
+2026-03-28 23:53:54,885 [INFO] pipeline.fusion_pipeline: Arduino switched to AI mode
+2026-03-28 23:53:54,885 [INFO] pipeline.fusion_pipeline: === Fusion Pipeline Started ===
+2026-03-28 23:53:54,885 [INFO] pipeline.fusion_pipeline: ── Cycle 1 ──────────────────────────────────
+2026-03-28 23:53:55,888 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=561 ewma=561.0 sse=-191.0 int_err=-191 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-28 23:53:56,020 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-28 23:53:56,021 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-28 23:53:56,897 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-28 23:53:56,898 [ERROR] pipeline.fusion_pipeline: Cycle 1 error (1/5): 'Content' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 199, in run_forever
+    await self._run_one_cycle(cycle)
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 167, in _run_one_cycle
+    async for event in self._runner.run_async(
+    ...<11 lines>...
+                    logger.debug("[%s] %s", author, text.strip()[:200])
+  File "/opt/anaconda3/lib/python3.13/site-packages/google/adk/runners.py", line 565, in run_async
+    async for event in agen:
+      yield event
+  File "/opt/anaconda3/lib/python3.13/site-packages/google/adk/runners.py", line 550, in _run_with_trace
+    async for event in agen:
+      yield event
+  File "/opt/anaconda3/lib/python3.13/site-packages/google/adk/runners.py", line 782, in _exec_with_plugin
+    async for event in agen:
+    ...<64 lines>...
+        yield event
+  File "/opt/anaconda3/lib/python3.13/site-packages/google/adk/runners.py", line 539, in execute
+    async for event in agen:
+      yield event
+  File "/opt/anaconda3/lib/python3.13/site-packages/google/adk/agents/base_agent.py", line 295, in run_async
+    async for event in agen:
+      yield event
+  File "/opt/anaconda3/lib/python3.13/site-packages/google/adk/agents/sequential_agent.py", line 78, in _run_async_impl
+    async for event in agen:
+    ...<2 lines>...
+        pause_invocation = True
+  File "/opt/anaconda3/lib/python3.13/site-packages/google/adk/agents/base_agent.py", line 295, in run_async
+    async for event in agen:
+      yield event
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/agents/decision_agent.py", line 308, in _run_async_impl
+    parts = event.content.get("parts", [])
+            ^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'Content' object has no attribute 'get'
+2026-03-28 23:53:58,907 [INFO] pipeline.fusion_pipeline: ── Cycle 2 ──────────────────────────────────
+2026-03-28 23:53:59,911 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=571 ewma=571.0 sse=-181.0 int_err=-181 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-28 23:54:00,002 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-28 23:54:00,002 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-28 23:54:01,071 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-28 23:54:01,073 [ERROR] pipeline.fusion_pipeline: Cycle 2 error (2/5): 'Content' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 199, in run_forever
+    await self._run_one_cycle(cycle)
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 167, in _run_one_cycle
+    async for event in self._runner.run_async(
+    ...<11 lines>...
+                    logger.debug("[%s] %s", author, text.strip()[:200])
+  File "/opt/anaconda3/lib/python3.13/site-packages/google/adk/runners.py", line 565, in run_async
+    async for event in agen:
+      yield event
+  File "/opt/anaconda3/lib/python3.13/site-packages/google/adk/runners.py", line 550, in _run_with_trace
+    async for event in agen:
+      yield event
+  File "/opt/anaconda3/lib/python3.13/site-packages/google/adk/runners.py", line 782, in _exec_with_plugin
+    async for event in agen:
+    ...<64 lines>...
+        yield event
+  File "/opt/anaconda3/lib/python3.13/site-packages/google/adk/runners.py", line 539, in execute
+    async for event in agen:
+      yield event
+  File "/opt/anaconda3/lib/python3.13/site-packages/google/adk/agents/base_agent.py", line 295, in run_async
+    async for event in agen:
+      yield event
+  File "/opt/anaconda3/lib/python3.13/site-packages/google/adk/agents/sequential_agent.py", line 78, in _run_async_impl
+    async for event in agen:
+    ...<2 lines>...
+        pause_invocation = True
+  File "/opt/anaconda3/lib/python3.13/site-packages/google/adk/agents/base_agent.py", line 295, in run_async
+    async for event in agen:
+      yield event
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/agents/decision_agent.py", line 308, in _run_async_impl
+    parts = event.content.get("parts", [])
+            ^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'Content' object has no attribute 'get'
+2026-03-28 23:54:03,082 [INFO] pipeline.fusion_pipeline: ── Cycle 3 ──────────────────────────────────
+2026-03-28 23:54:04,087 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=569 ewma=569.0 sse=-183.0 int_err=-183 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-28 23:54:04,175 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-28 23:54:04,176 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-28 23:54:05,163 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-28 23:54:05,167 [ERROR] pipeline.fusion_pipeline: Cycle 3 error (3/5): 'Content' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 199, in run_forever
+    await self._run_one_cycle(cycle)
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 167, in _run_one_cycle
+    async for event in self._runner.run_async(
+    ...<11 lines>...
+                    logger.debug("[%s] %s", author, text.strip()[:200])
+  File "/opt/anaconda3/lib/python3.13/site-packages/google/adk/runners.py", line 565, in run_async
+    async for event in agen:
+      yield event
+  File "/opt/anaconda3/lib/python3.13/site-packages/google/adk/runners.py", line 550, in _run_with_trace
+    async for event in agen:
+      yield event
+  File "/opt/anaconda3/lib/python3.13/site-packages/google/adk/runners.py", line 782, in _exec_with_plugin
+    async for event in agen:
+    ...<64 lines>...
+        yield event
+  File "/opt/anaconda3/lib/python3.13/site-packages/google/adk/runners.py", line 539, in execute
+    async for event in agen:
+      yield event
+  File "/opt/anaconda3/lib/python3.13/site-packages/google/adk/agents/base_agent.py", line 295, in run_async
+    async for event in agen:
+      yield event
+  File "/opt/anaconda3/lib/python3.13/site-packages/google/adk/agents/sequential_agent.py", line 78, in _run_async_impl
+    async for event in agen:
+    ...<2 lines>...
+        pause_invocation = True
+  File "/opt/anaconda3/lib/python3.13/site-packages/google/adk/agents/base_agent.py", line 295, in run_async
+    async for event in agen:
+      yield event
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/agents/decision_agent.py", line 308, in _run_async_impl
+    parts = event.content.get("parts", [])
+            ^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'Content' object has no attribute 'get'
+2026-03-28 23:54:07,174 [INFO] pipeline.fusion_pipeline: ── Cycle 4 ──────────────────────────────────
+2026-03-28 23:54:08,180 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=567 ewma=567.0 sse=-185.0 int_err=-185 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-28 23:54:08,315 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-28 23:54:08,316 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-28 23:54:09,396 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-28 23:54:09,400 [ERROR] pipeline.fusion_pipeline: Cycle 4 error (4/5): 'Content' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 199, in run_forever
+    await self._run_one_cycle(cycle)
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 167, in _run_one_cycle
+    async for event in self._runner.run_async(
+    ...<11 lines>...
+                    logger.debug("[%s] %s", author, text.strip()[:200])
+  File "/opt/anaconda3/lib/python3.13/site-packages/google/adk/runners.py", line 565, in run_async
+    async for event in agen:
+      yield event
+  File "/opt/anaconda3/lib/python3.13/site-packages/google/adk/runners.py", line 550, in _run_with_trace
+    async for event in agen:
+      yield event
+  File "/opt/anaconda3/lib/python3.13/site-packages/google/adk/runners.py", line 782, in _exec_with_plugin
+    async for event in agen:
+    ...<64 lines>...
+        yield event
+  File "/opt/anaconda3/lib/python3.13/site-packages/google/adk/runners.py", line 539, in execute
+    async for event in agen:
+      yield event
+  File "/opt/anaconda3/lib/python3.13/site-packages/google/adk/agents/base_agent.py", line 295, in run_async
+    async for event in agen:
+      yield event
+  File "/opt/anaconda3/lib/python3.13/site-packages/google/adk/agents/sequential_agent.py", line 78, in _run_async_impl
+    async for event in agen:
+    ...<2 lines>...
+        pause_invocation = True
+  File "/opt/anaconda3/lib/python3.13/site-packages/google/adk/agents/base_agent.py", line 295, in run_async
+    async for event in agen:
+      yield event
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/agents/decision_agent.py", line 308, in _run_async_impl
+    parts = event.content.get("parts", [])
+            ^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'Content' object has no attribute 'get'
+2026-03-28 23:54:11,409 [INFO] pipeline.fusion_pipeline: ── Cycle 5 ──────────────────────────────────
+2026-03-28 23:54:12,415 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=566 ewma=566.0 sse=-186.0 int_err=-186 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-28 23:54:12,506 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-28 23:54:12,507 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-28 23:54:13,448 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-28 23:54:13,449 [ERROR] pipeline.fusion_pipeline: Cycle 5 error (5/5): 'Content' object has no attribute 'get'
+Traceback (most recent call last):
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 199, in run_forever
+    await self._run_one_cycle(cycle)
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 167, in _run_one_cycle
+    async for event in self._runner.run_async(
+    ...<11 lines>...
+                    logger.debug("[%s] %s", author, text.strip()[:200])
+  File "/opt/anaconda3/lib/python3.13/site-packages/google/adk/runners.py", line 565, in run_async
+    async for event in agen:
+      yield event
+  File "/opt/anaconda3/lib/python3.13/site-packages/google/adk/runners.py", line 550, in _run_with_trace
+    async for event in agen:
+      yield event
+  File "/opt/anaconda3/lib/python3.13/site-packages/google/adk/runners.py", line 782, in _exec_with_plugin
+    async for event in agen:
+    ...<64 lines>...
+        yield event
+  File "/opt/anaconda3/lib/python3.13/site-packages/google/adk/runners.py", line 539, in execute
+    async for event in agen:
+      yield event
+  File "/opt/anaconda3/lib/python3.13/site-packages/google/adk/agents/base_agent.py", line 295, in run_async
+    async for event in agen:
+      yield event
+  File "/opt/anaconda3/lib/python3.13/site-packages/google/adk/agents/sequential_agent.py", line 78, in _run_async_impl
+    async for event in agen:
+    ...<2 lines>...
+        pause_invocation = True
+  File "/opt/anaconda3/lib/python3.13/site-packages/google/adk/agents/base_agent.py", line 295, in run_async
+    async for event in agen:
+      yield event
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/agents/decision_agent.py", line 308, in _run_async_impl
+    parts = event.content.get("parts", [])
+            ^^^^^^^^^^^^^^^^^
+  File "/opt/anaconda3/lib/python3.13/site-packages/pydantic/main.py", line 1026, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'Content' object has no attribute 'get'
+2026-03-28 23:54:13,452 [CRITICAL] pipeline.fusion_pipeline: 5 consecutive failures — unrecoverable, shutting down
+2026-03-28 23:54:13,452 [INFO] pipeline.fusion_pipeline: Shutting down — switching Arduino to auto/backup mode
+2026-03-28 23:54:13,452 [INFO] __main__: [SIM] switched to auto mode
+2026-03-28 23:54:13,452 [INFO] pipeline.fusion_pipeline: === Fusion Pipeline Stopped ===
+2026-03-28 23:54:13,452 [INFO] __main__: [SIM] Simulated bridge disconnected
+2026-03-28 23:56:24,272 [INFO] __main__: Starting in SIMULATE mode — no Arduino required
+2026-03-28 23:56:24,272 [INFO] __main__: [SIM] Simulated bridge connected
+2026-03-28 23:56:24,272 [INFO] pipeline.fusion_pipeline: ADK session created: system / main_session
+2026-03-28 23:56:24,273 [INFO] __main__: [SIM] switched to ai mode
+2026-03-28 23:56:24,273 [INFO] pipeline.fusion_pipeline: Arduino switched to AI mode
+2026-03-28 23:56:24,273 [INFO] pipeline.fusion_pipeline: === Fusion Pipeline Started ===
+2026-03-28 23:56:24,273 [INFO] pipeline.fusion_pipeline: ── Cycle 1 ──────────────────────────────────
+2026-03-28 23:56:25,275 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=571 ewma=571.0 sse=-181.0 int_err=-181 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-28 23:56:25,412 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-28 23:56:25,413 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-28 23:56:26,465 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-28 23:56:26,468 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | System is starting up (cycle 1) and is_low is True. The beam has not been found yet. Increasing both electrodes symmetri
+2026-03-28 23:56:26,468 [INFO] __main__: [SIM] set_electrodes a=100 b=100
+2026-03-28 23:56:26,468 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=0→100 b=0→100
+2026-03-28 23:56:26,556 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-28 23:56:26,556 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-28 23:56:27,565 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-28 23:56:27,565 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No focused_analysis or recent_history provided for this initial startup cycle. Therefore, no parameters will be adjusted
+2026-03-28 23:56:27,565 [INFO] pipeline.fusion_pipeline: ── Cycle 2 ──────────────────────────────────
+2026-03-28 23:56:28,567 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=570 ewma=570.0 sse=-182.0 int_err=-182 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-28 23:56:28,650 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-28 23:56:28,650 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-28 23:56:29,562 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-28 23:56:29,564 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | System is still in the initial search phase (cycle 2). is_low is True, indicating the beam has not been found. Continuin
+2026-03-28 23:56:29,564 [INFO] __main__: [SIM] set_electrodes a=200 b=200
+2026-03-28 23:56:29,564 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=100→200 b=100→200
+2026-03-28 23:56:29,652 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-28 23:56:29,652 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-28 23:56:30,483 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-28 23:56:30,485 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No focused_analysis or recent_history provided. The decision agent is still in a search phase. No parameters can be adju
+2026-03-28 23:56:30,486 [INFO] pipeline.fusion_pipeline: ── Cycle 3 ──────────────────────────────────
+2026-03-28 23:56:31,490 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=572 ewma=572.0 sse=-180.0 int_err=-180 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-28 23:56:31,573 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-28 23:56:31,573 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-28 23:56:32,436 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-28 23:56:32,438 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | Still in the initial search phase (cycle 3). is_low is True, meaning the beam hasn't been detected. Continuing the symme
+2026-03-28 23:56:32,439 [INFO] __main__: [SIM] set_electrodes a=300 b=300
+2026-03-28 23:56:32,439 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=200→300 b=200→300
+2026-03-28 23:56:32,528 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-28 23:56:32,528 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-28 23:56:33,667 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-28 23:56:33,668 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No focused_analysis or recent_history provided. The decision agent is still in its initial search phase. Parameter adjus
+2026-03-28 23:56:33,669 [INFO] pipeline.fusion_pipeline: ── Cycle 4 ──────────────────────────────────
+2026-03-28 23:56:34,673 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=580 ewma=580.0 sse=-172.0 int_err=-172 cv=0.000 settling=True effectiveness=unknown spike=False low=False
+2026-03-28 23:56:34,765 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-28 23:56:34,765 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-28 23:56:35,907 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-28 23:56:35,909 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | Initial search phase continues (cycle 4). is_low is True. The beam has not been detected. Continuing the symmetric upwar
+2026-03-28 23:56:35,909 [INFO] __main__: [SIM] set_electrodes a=400 b=400
+2026-03-28 23:56:35,909 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=300→400 b=300→400
+2026-03-28 23:56:35,988 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-28 23:56:35,988 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-28 23:56:36,937 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-28 23:56:36,939 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No focused_analysis or recent_history provided. The decision agent is still in the initial search phase. Parameter adjus
+2026-03-28 23:56:36,940 [INFO] pipeline.fusion_pipeline: ── Cycle 5 ──────────────────────────────────
+2026-03-28 23:56:37,944 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=588 ewma=588.0 sse=-164.0 int_err=-164 cv=0.000 settling=True effectiveness=unknown spike=False low=False
+2026-03-28 23:56:38,037 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-28 23:56:38,037 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-28 23:56:39,230 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-28 23:56:39,232 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | Still in the initial search phase (cycle 5). is_low is True, beam not detected. Continuing symmetric sweep upwards with 
+2026-03-28 23:56:39,233 [INFO] __main__: [SIM] set_electrodes a=500 b=500
+2026-03-28 23:56:39,233 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=400→500 b=400→500
+2026-03-28 23:56:39,321 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-28 23:56:39,322 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-28 23:56:40,178 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-28 23:56:40,179 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No focused_analysis or recent_history provided. The decision agent is still in the initial search phase. Parameter adjus
+2026-03-28 23:56:40,180 [INFO] pipeline.fusion_pipeline: ── Cycle 6 ──────────────────────────────────
+2026-03-28 23:56:41,182 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=593 ewma=593.0 sse=-159.0 int_err=-159 cv=0.000 settling=True effectiveness=unknown spike=False low=False
+2026-03-28 23:56:41,260 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-28 23:56:41,261 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-28 23:56:42,232 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-28 23:56:42,234 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | Initial search phase continues (cycle 6). is_low is True. Beam not detected. Continuing symmetric sweep upwards with a m
+2026-03-28 23:56:42,234 [INFO] __main__: [SIM] set_electrodes a=600 b=600
+2026-03-28 23:56:42,234 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=500→600 b=500→600
+2026-03-28 23:56:42,316 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-28 23:56:42,317 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-28 23:56:43,261 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-28 23:56:43,263 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No focused_analysis or recent_history provided. The decision agent is still in its initial search phase. Parameter adjus
+2026-03-28 23:56:43,264 [INFO] pipeline.fusion_pipeline: ── Cycle 7 ──────────────────────────────────
+2026-03-28 23:56:44,270 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=597 ewma=597.0 sse=-155.0 int_err=-155 cv=0.000 settling=True effectiveness=unknown spike=False low=False
+2026-03-28 23:56:44,361 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-28 23:56:44,361 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-28 23:56:45,535 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-28 23:56:45,536 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | Initial search phase continues (cycle 7). is_low is True. Beam not detected. Continuing symmetric sweep upwards with a m
+2026-03-28 23:56:45,536 [INFO] __main__: [SIM] set_electrodes a=700 b=700
+2026-03-28 23:56:45,536 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=600→700 b=600→700
+2026-03-28 23:56:45,615 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-28 23:56:45,615 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-28 23:56:46,458 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-28 23:56:46,460 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No focused_analysis or recent_history provided. The decision agent is still in the initial search phase. Parameter adjus
+2026-03-28 23:56:46,461 [INFO] pipeline.fusion_pipeline: ── Cycle 8 ──────────────────────────────────
+2026-03-28 23:56:47,468 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=609 ewma=609.0 sse=-143.0 int_err=-143 cv=0.000 settling=True effectiveness=unknown spike=False low=False
+2026-03-28 23:56:47,547 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-28 23:56:47,547 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-28 23:56:48,392 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-28 23:56:48,395 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | Initial search phase continues (cycle 8). is_low is True. Beam not detected. Continuing symmetric sweep upwards with a m
+2026-03-28 23:56:48,396 [INFO] __main__: [SIM] set_electrodes a=800 b=800
+2026-03-28 23:56:48,396 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=700→800 b=700→800
+2026-03-28 23:56:48,486 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-28 23:56:48,486 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-28 23:56:49,426 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-28 23:56:49,428 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No focused_analysis or recent_history provided. The decision agent is still in its initial search phase. Parameter adjus
+2026-03-28 23:56:49,429 [INFO] pipeline.fusion_pipeline: ── Cycle 9 ──────────────────────────────────
+2026-03-28 23:56:50,436 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=612 ewma=612.0 sse=-140.0 int_err=-140 cv=0.000 settling=True effectiveness=unknown spike=False low=False
+2026-03-28 23:56:50,526 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-28 23:56:50,526 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-28 23:56:51,577 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-28 23:56:51,579 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | Initial search phase continues (cycle 9). is_low is True. Beam not detected. Continuing symmetric sweep upwards with a m
+2026-03-28 23:56:51,580 [INFO] __main__: [SIM] set_electrodes a=900 b=900
+2026-03-28 23:56:51,580 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=800→900 b=800→900
+2026-03-28 23:56:51,662 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-28 23:56:51,662 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-28 23:56:52,856 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-28 23:56:52,859 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No focused_analysis or recent_history provided. The decision agent is still in the initial search phase. Parameter adjus
+2026-03-28 23:56:52,860 [INFO] pipeline.fusion_pipeline: ── Cycle 10 ──────────────────────────────────
+2026-03-28 23:56:53,868 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=624 ewma=624.0 sse=-128.0 int_err=-128 cv=0.000 settling=True effectiveness=unknown spike=False low=False
+2026-03-28 23:56:53,959 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-28 23:56:53,960 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-28 23:56:54,851 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-28 23:56:54,853 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | Initial search phase continues (cycle 10). is_low is True. Beam not detected. Continuing symmetric sweep upwards with a 
+2026-03-28 23:56:54,853 [INFO] __main__: [SIM] set_electrodes a=1000 b=1000
+2026-03-28 23:56:54,853 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=900→1000 b=900→1000
+2026-03-28 23:56:54,933 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-28 23:56:54,933 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-28 23:56:56,038 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-28 23:56:56,041 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No focused_analysis or recent_history provided. The decision agent is still in its initial search phase. Parameter adjus
+2026-03-28 23:56:56,042 [INFO] pipeline.fusion_pipeline: ── Cycle 11 ──────────────────────────────────
+2026-03-28 23:56:57,051 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=632 ewma=632.0 sse=-120.0 int_err=-120 cv=0.000 settling=True effectiveness=unknown spike=False low=False
+2026-03-28 23:56:57,140 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-28 23:56:57,140 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-28 23:56:58,281 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-28 23:56:58,284 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | Initial search phase continues (cycle 11). is_low is True. Beam not detected. Continuing symmetric sweep upwards with a 
+2026-03-28 23:56:58,284 [INFO] __main__: [SIM] set_electrodes a=1100 b=1100
+2026-03-28 23:56:58,284 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=1000→1100 b=1000→1100
+2026-03-28 23:56:58,373 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-28 23:56:58,373 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-28 23:56:59,158 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-28 23:56:59,161 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No focused_analysis or recent_history provided. The decision agent is still in the initial search phase. Parameter adjus
+2026-03-28 23:56:59,162 [INFO] pipeline.fusion_pipeline: ── Cycle 12 ──────────────────────────────────
+2026-03-28 23:57:00,170 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=645 ewma=645.0 sse=-107.0 int_err=-107 cv=0.000 settling=True effectiveness=unknown spike=False low=False
+2026-03-28 23:57:00,251 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-28 23:57:00,252 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-28 23:57:03,316 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-28 23:57:03,319 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | Initial search phase continues (cycle 12). is_low is True. Beam not detected. Continuing symmetric sweep upwards with a 
+2026-03-28 23:57:03,319 [INFO] __main__: [SIM] set_electrodes a=1200 b=1200
+2026-03-28 23:57:03,319 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=1100→1200 b=1100→1200
+2026-03-28 23:57:03,409 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-28 23:57:03,410 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-28 23:57:04,405 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-28 23:57:04,408 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No focused_analysis or recent_history provided. The decision agent is still in its initial search phase. Parameter adjus
+2026-03-28 23:57:04,410 [INFO] pipeline.fusion_pipeline: ── Cycle 13 ──────────────────────────────────
+2026-03-28 23:57:05,418 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=655 ewma=655.0 sse=-97.0 int_err=-97 cv=0.000 settling=True effectiveness=unknown spike=False low=False
+2026-03-28 23:57:05,510 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-28 23:57:05,510 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-28 23:57:06,497 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-28 23:57:06,499 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | Initial search phase continues (cycle 13). is_low is True. Beam not detected. Continuing symmetric sweep upwards with a 
+2026-03-28 23:57:06,500 [INFO] __main__: [SIM] set_electrodes a=1300 b=1300
+2026-03-28 23:57:06,500 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=1200→1300 b=1200→1300
+2026-03-28 23:57:06,588 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-28 23:57:06,589 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-28 23:57:07,419 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-28 23:57:07,420 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No focused_analysis or recent_history provided. The decision agent is still in the initial search phase. Parameter adjus
+2026-03-28 23:57:07,420 [INFO] pipeline.fusion_pipeline: ── Cycle 14 ──────────────────────────────────
+2026-03-28 23:57:08,426 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=669 ewma=669.0 sse=-83.0 int_err=-83 cv=0.000 settling=True effectiveness=unknown spike=False low=False
+2026-03-28 23:57:08,506 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-28 23:57:08,506 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-28 23:57:09,710 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-28 23:57:09,713 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | Initial search phase continues (cycle 14). is_low is True. Beam not detected. Continuing symmetric sweep upwards with a 
+2026-03-28 23:57:09,713 [INFO] __main__: [SIM] set_electrodes a=1400 b=1400
+2026-03-28 23:57:09,713 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=1300→1400 b=1300→1400
+2026-03-28 23:57:09,797 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-28 23:57:09,797 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-28 23:57:10,789 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-28 23:57:10,792 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No focused_analysis or recent_history provided. The decision agent is still in its initial search phase. Parameter adjus
+2026-03-28 23:57:10,794 [INFO] pipeline.fusion_pipeline: ── Cycle 15 ──────────────────────────────────
+2026-03-28 23:57:11,807 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=680 ewma=680.0 sse=-72.0 int_err=-72 cv=0.000 settling=True effectiveness=unknown spike=False low=False
+2026-03-28 23:57:11,997 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-28 23:57:11,997 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-28 23:57:12,952 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-28 23:57:12,955 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | Initial search phase continues (cycle 15). is_low is True. Beam not detected. Continuing symmetric sweep upwards with a 
+2026-03-28 23:57:12,956 [INFO] __main__: [SIM] set_electrodes a=1500 b=1500
+2026-03-28 23:57:12,956 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=1400→1500 b=1400→1500
+2026-03-28 23:57:13,040 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-28 23:57:13,041 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-28 23:57:13,951 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-28 23:57:13,953 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No focused_analysis or recent_history provided. The decision agent is still in the initial search phase. Parameter adjus
+2026-03-28 23:57:13,955 [INFO] pipeline.fusion_pipeline: ── Cycle 16 ──────────────────────────────────
+2026-03-28 23:57:14,965 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=694 ewma=694.0 sse=-58.0 int_err=-58 cv=0.000 settling=True effectiveness=unknown spike=False low=False
+2026-03-28 23:57:15,063 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-28 23:57:15,063 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-28 23:57:16,040 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-28 23:57:16,042 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | Initial search phase continues (cycle 16). is_low is True. Beam not detected. Continuing symmetric sweep upwards with a 
+2026-03-28 23:57:16,043 [INFO] __main__: [SIM] set_electrodes a=1600 b=1600
+2026-03-28 23:57:16,043 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=1500→1600 b=1500→1600
+2026-03-28 23:57:16,126 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-28 23:57:16,126 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-28 23:57:17,008 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-28 23:57:17,010 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No focused_analysis or recent_history provided. The decision agent is still in its initial search phase. Parameter adjus
+2026-03-28 23:57:17,010 [INFO] pipeline.fusion_pipeline: ── Cycle 17 ──────────────────────────────────
+2026-03-28 23:57:18,019 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=706 ewma=706.0 sse=-46.0 int_err=-46 cv=0.000 settling=True effectiveness=unknown spike=False low=False
+2026-03-28 23:57:18,106 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-28 23:57:18,107 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-28 23:57:19,181 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-28 23:57:19,182 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | Initial search phase continues (cycle 17). is_low is True. Beam not detected. Continuing symmetric sweep upwards with a 
+2026-03-28 23:57:19,183 [INFO] __main__: [SIM] set_electrodes a=1700 b=1700
+2026-03-28 23:57:19,183 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=1600→1700 b=1600→1700
+2026-03-28 23:57:19,264 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-28 23:57:19,264 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-28 23:57:20,323 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-28 23:57:20,326 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No focused_analysis or recent_history provided. The decision agent is still in the initial search phase. Parameter adjus
+2026-03-28 23:57:20,327 [INFO] pipeline.fusion_pipeline: ── Cycle 18 ──────────────────────────────────
+2026-03-28 23:57:21,339 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=726 ewma=726.0 sse=-26.0 int_err=-26 cv=0.000 settling=True effectiveness=unknown spike=False low=False
+2026-03-28 23:57:21,427 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-28 23:57:21,428 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-28 23:57:22,415 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-28 23:57:22,419 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | Initial search phase continues (cycle 18). is_low is True. Beam not detected. Continuing symmetric sweep upwards with a 
+2026-03-28 23:57:22,419 [INFO] __main__: [SIM] set_electrodes a=1800 b=1800
+2026-03-28 23:57:22,419 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=1700→1800 b=1700→1800
+2026-03-28 23:57:22,509 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-28 23:57:22,510 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-28 23:57:23,627 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-28 23:57:23,631 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No focused_analysis or recent_history provided. The decision agent is still in its initial search phase. Parameter adjus
+2026-03-28 23:57:23,632 [INFO] pipeline.fusion_pipeline: ── Cycle 19 ──────────────────────────────────
+2026-03-28 23:57:24,643 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=733 ewma=733.0 sse=-19.0 int_err=-19 cv=0.000 settling=True effectiveness=unknown spike=False low=False
+2026-03-28 23:57:24,729 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-28 23:57:24,729 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-28 23:57:25,979 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-28 23:57:25,980 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | Initial search phase continues (cycle 19). is_low is True. Beam not detected. Continuing symmetric sweep upwards with a 
+2026-03-28 23:57:25,981 [INFO] __main__: [SIM] set_electrodes a=1900 b=1900
+2026-03-28 23:57:25,981 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=1800→1900 b=1800→1900
+2026-03-28 23:57:26,060 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-28 23:57:26,060 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-28 23:57:27,091 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-28 23:57:27,094 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No focused_analysis or recent_history provided. The decision agent is still in the initial search phase. Parameter adjus
+2026-03-28 23:57:27,096 [INFO] pipeline.fusion_pipeline: ── Cycle 20 ──────────────────────────────────
+2026-03-28 23:57:28,108 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=744 ewma=744.0 sse=-8.0 int_err=-8 cv=0.000 settling=True effectiveness=unknown spike=False low=False
+2026-03-28 23:57:28,201 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-28 23:57:28,202 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-28 23:57:29,382 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-28 23:57:29,385 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | Initial search phase continues (cycle 20). is_low is True. Beam not detected. Continuing symmetric sweep upwards with a 
+2026-03-28 23:57:29,385 [INFO] __main__: [SIM] set_electrodes a=2000 b=2000
+2026-03-28 23:57:29,385 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=1900→2000 b=1900→2000
+2026-03-28 23:57:29,476 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-28 23:57:29,476 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-28 23:57:30,689 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-28 23:57:30,691 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No focused_analysis or recent_history provided. The decision agent is still in its initial search phase. Parameter adjus
+2026-03-28 23:57:30,691 [INFO] pipeline.fusion_pipeline: ── Cycle 21 ──────────────────────────────────
+2026-03-28 23:57:31,698 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=760 ewma=760.0 sse=+8.0 int_err=8 cv=0.000 settling=True effectiveness=unknown spike=False low=False
+2026-03-28 23:57:31,780 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-28 23:57:31,780 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-28 23:57:32,999 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-28 23:57:33,001 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | Initial search phase continues (cycle 21). is_low is True. Beam not detected. Continuing symmetric sweep upwards with a 
+2026-03-28 23:57:33,001 [INFO] __main__: [SIM] set_electrodes a=2100 b=2100
+2026-03-28 23:57:33,001 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=2000→2100 b=2000→2100
+2026-03-28 23:57:33,086 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-28 23:57:33,087 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-28 23:57:33,904 [INFO] __main__: Signal SIGINT received — stopping pipeline after current cycle
+2026-03-28 23:57:34,048 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-28 23:57:34,049 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No focused_analysis or recent_history provided. The decision agent is still in the initial search phase. Parameter adjus
+2026-03-28 23:57:34,050 [INFO] pipeline.fusion_pipeline: Shutting down — switching Arduino to auto/backup mode
+2026-03-28 23:57:34,050 [INFO] __main__: [SIM] switched to auto mode
+2026-03-28 23:57:34,050 [INFO] pipeline.fusion_pipeline: === Fusion Pipeline Stopped ===
+2026-03-28 23:57:34,050 [INFO] __main__: [SIM] Simulated bridge disconnected
+2026-03-29 00:16:39,482 [INFO] __main__: Starting in SIMULATE mode — no Arduino required
+2026-03-29 00:16:39,482 [INFO] __main__: [SIM] Simulated bridge connected
+2026-03-29 00:16:39,483 [INFO] pipeline.fusion_pipeline: ADK session created: system / main_session
+2026-03-29 00:16:39,483 [INFO] __main__: [SIM] switched to ai mode
+2026-03-29 00:16:39,483 [INFO] pipeline.fusion_pipeline: Arduino switched to AI mode
+2026-03-29 00:16:39,483 [INFO] pipeline.fusion_pipeline: === Fusion Pipeline Started ===
+2026-03-29 00:16:39,483 [INFO] pipeline.fusion_pipeline: ── Cycle 1 ──────────────────────────────────
+2026-03-29 00:16:39,483 [ERROR] pipeline.fusion_pipeline: Cycle 1 error (1/5): 'InMemorySessionService' object has no attribute 'update_session'
+Traceback (most recent call last):
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 238, in run_forever
+    await self._run_one_cycle(cycle)
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 189, in _run_one_cycle
+    await self._session_service.update_session(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'InMemorySessionService' object has no attribute 'update_session'. Did you mean: 'create_session'?
+2026-03-29 00:16:41,485 [INFO] pipeline.fusion_pipeline: ── Cycle 2 ──────────────────────────────────
+2026-03-29 00:16:41,486 [ERROR] pipeline.fusion_pipeline: Cycle 2 error (2/5): 'InMemorySessionService' object has no attribute 'update_session'
+Traceback (most recent call last):
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 238, in run_forever
+    await self._run_one_cycle(cycle)
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 189, in _run_one_cycle
+    await self._session_service.update_session(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'InMemorySessionService' object has no attribute 'update_session'. Did you mean: 'create_session'?
+2026-03-29 00:16:43,488 [INFO] pipeline.fusion_pipeline: ── Cycle 3 ──────────────────────────────────
+2026-03-29 00:16:43,489 [ERROR] pipeline.fusion_pipeline: Cycle 3 error (3/5): 'InMemorySessionService' object has no attribute 'update_session'
+Traceback (most recent call last):
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 238, in run_forever
+    await self._run_one_cycle(cycle)
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 189, in _run_one_cycle
+    await self._session_service.update_session(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'InMemorySessionService' object has no attribute 'update_session'. Did you mean: 'create_session'?
+2026-03-29 00:16:45,491 [INFO] pipeline.fusion_pipeline: ── Cycle 4 ──────────────────────────────────
+2026-03-29 00:16:45,493 [ERROR] pipeline.fusion_pipeline: Cycle 4 error (4/5): 'InMemorySessionService' object has no attribute 'update_session'
+Traceback (most recent call last):
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 238, in run_forever
+    await self._run_one_cycle(cycle)
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 189, in _run_one_cycle
+    await self._session_service.update_session(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'InMemorySessionService' object has no attribute 'update_session'. Did you mean: 'create_session'?
+2026-03-29 00:16:47,495 [INFO] pipeline.fusion_pipeline: ── Cycle 5 ──────────────────────────────────
+2026-03-29 00:16:47,495 [ERROR] pipeline.fusion_pipeline: Cycle 5 error (5/5): 'InMemorySessionService' object has no attribute 'update_session'
+Traceback (most recent call last):
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 238, in run_forever
+    await self._run_one_cycle(cycle)
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 189, in _run_one_cycle
+    await self._session_service.update_session(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'InMemorySessionService' object has no attribute 'update_session'. Did you mean: 'create_session'?
+2026-03-29 00:16:47,496 [CRITICAL] pipeline.fusion_pipeline: 5 consecutive failures — unrecoverable, shutting down
+2026-03-29 00:16:47,496 [INFO] pipeline.fusion_pipeline: Shutting down — switching Arduino to auto/backup mode
+2026-03-29 00:16:47,496 [INFO] __main__: [SIM] switched to auto mode
+2026-03-29 00:16:47,496 [INFO] pipeline.fusion_pipeline: === Fusion Pipeline Stopped ===
+2026-03-29 00:16:47,496 [INFO] __main__: [SIM] Simulated bridge disconnected
+2026-03-29 00:19:04,781 [INFO] __main__: Starting in SIMULATE mode — no Arduino required
+2026-03-29 00:19:04,781 [INFO] __main__: [SIM] Simulated bridge connected
+2026-03-29 00:19:04,782 [INFO] pipeline.fusion_pipeline: ADK session created: system / main_session
+2026-03-29 00:19:04,782 [INFO] __main__: [SIM] switched to ai mode
+2026-03-29 00:19:04,782 [INFO] pipeline.fusion_pipeline: Arduino switched to AI mode
+2026-03-29 00:19:04,782 [INFO] pipeline.fusion_pipeline: === Fusion Pipeline Started ===
+2026-03-29 00:19:04,782 [INFO] pipeline.fusion_pipeline: ── Cycle 1 ──────────────────────────────────
+2026-03-29 00:19:05,785 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=567 ewma=567.0 sse=-185.0 int_err=-185 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-29 00:19:05,913 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 00:19:05,914 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 00:19:06,947 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 00:19:06,961 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | System is starting up (cycle 1), is_low is True. Rule 5 (BEAM SEARCH) applies. Increasing both electrodes symmetrically 
+2026-03-29 00:19:06,961 [INFO] __main__: [SIM] set_electrodes a=100 b=100
+2026-03-29 00:19:06,962 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=0→100 b=0→100
+2026-03-29 00:19:07,053 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 00:19:07,054 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 00:19:07,949 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 00:19:07,950 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No focused_analysis provided, so no metrics are available to assess system performance. Therefore, no parameter adjustme
+2026-03-29 00:19:07,950 [INFO] pipeline.fusion_pipeline: ── Cycle 2 ──────────────────────────────────
+2026-03-29 00:19:08,953 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=571 ewma=571.0 sse=-181.0 int_err=-181 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-29 00:19:09,033 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 00:19:09,034 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 00:19:10,040 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 00:19:10,041 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | System is still in the initial search phase (cycle 2), is_low is True. Rule 5 (BEAM SEARCH) continues to apply. Increasi
+2026-03-29 00:19:10,041 [INFO] __main__: [SIM] set_electrodes a=200 b=200
+2026-03-29 00:19:10,041 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=100→200 b=100→200
+2026-03-29 00:19:10,120 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 00:19:10,120 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 00:19:10,810 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 00:19:10,812 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No focused_analysis provided, so no metrics are available to assess system performance. Therefore, no parameter adjustme
+2026-03-29 00:19:10,812 [INFO] pipeline.fusion_pipeline: ── Cycle 3 ──────────────────────────────────
+2026-03-29 00:19:11,815 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=574 ewma=574.0 sse=-178.0 int_err=-178 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-29 00:19:11,918 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 00:19:11,918 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 00:19:12,885 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 00:19:12,885 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | The system continues its initial search (cycle 3), with is_low still True. Rule 5 (BEAM SEARCH) is still active. Continu
+2026-03-29 00:19:12,886 [INFO] __main__: [SIM] set_electrodes a=300 b=300
+2026-03-29 00:19:12,886 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=200→300 b=200→300
+2026-03-29 00:19:12,965 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 00:19:12,965 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 00:19:13,702 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 00:19:13,702 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No focused_analysis provided, so no metrics are available to assess system performance. Therefore, no parameter adjustme
+2026-03-29 00:19:13,703 [INFO] pipeline.fusion_pipeline: ── Cycle 4 ──────────────────────────────────
+2026-03-29 00:19:14,706 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=577 ewma=577.0 sse=-175.0 int_err=-175 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-29 00:19:14,783 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 00:19:14,783 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 00:19:15,523 [INFO] __main__: Signal SIGINT received — stopping pipeline after current cycle
+2026-03-29 00:19:15,746 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 00:19:15,747 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | Still in the initial beam search phase (cycle 4), as is_low remains True. Rule 5 (BEAM SEARCH) is applied again, increas
+2026-03-29 00:19:15,747 [INFO] __main__: [SIM] set_electrodes a=400 b=400
+2026-03-29 00:19:15,747 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=300→400 b=300→400
+2026-03-29 00:19:15,824 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 00:19:15,824 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 00:19:16,568 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 00:19:16,570 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No focused_analysis provided, so no metrics are available to assess system performance. Therefore, no parameter adjustme
+2026-03-29 00:19:16,572 [INFO] pipeline.fusion_pipeline: Shutting down — switching Arduino to auto/backup mode
+2026-03-29 00:19:16,572 [INFO] __main__: [SIM] switched to auto mode
+2026-03-29 00:19:16,572 [INFO] pipeline.fusion_pipeline: === Fusion Pipeline Stopped ===
+2026-03-29 00:19:16,572 [INFO] __main__: [SIM] Simulated bridge disconnected
+2026-03-29 01:02:29,284 [INFO] __main__: Starting in SIMULATE mode — no Arduino required
+2026-03-29 01:02:29,285 [INFO] __main__: [SIM] Simulated bridge connected
+2026-03-29 01:02:29,285 [INFO] pipeline.fusion_pipeline: ADK session created: system / main_session
+2026-03-29 01:02:29,285 [INFO] __main__: [SIM] switched to ai mode
+2026-03-29 01:02:29,285 [INFO] pipeline.fusion_pipeline: Arduino switched to AI mode
+2026-03-29 01:02:29,285 [INFO] pipeline.fusion_pipeline: === Fusion Pipeline Started ===
+2026-03-29 01:02:29,285 [INFO] pipeline.fusion_pipeline: ── Cycle 1 ──────────────────────────────────
+2026-03-29 01:02:30,287 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=567 ewma=567.0 sse=-185.0 int_err=-185 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-29 01:02:30,400 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:02:30,402 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:02:31,259 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:02:31,260 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | System is starting up, is_low is true. Initiating a symmetric sweep upwards to find the beam. Initial delta is set to ha
+2026-03-29 01:02:31,260 [INFO] __main__: [SIM] set_electrodes a=100 b=100
+2026-03-29 01:02:31,260 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=0→100 b=0→100
+2026-03-29 01:02:31,339 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:02:31,340 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:02:32,039 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:02:32,039 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No new analysis data provided for this cycle. System is in initial startup phase, deferring parameter adjustments.
+2026-03-29 01:02:32,040 [ERROR] pipeline.fusion_pipeline: Cycle 1 error (1/5): 'InMemorySessionService' object has no attribute 'update_session'
+Traceback (most recent call last):
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 244, in run_forever
+    await self._session_service.update_session(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'InMemorySessionService' object has no attribute 'update_session'. Did you mean: 'create_session'?
+2026-03-29 01:02:34,042 [INFO] pipeline.fusion_pipeline: ── Cycle 2 ──────────────────────────────────
+2026-03-29 01:02:35,044 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=569 ewma=569.0 sse=-183.0 int_err=-183 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-29 01:02:35,125 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:02:35,125 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:02:35,871 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:02:35,872 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | System is still in the initial startup phase, and 'is_low' is true. Continuing the symmetric upward sweep to find the be
+2026-03-29 01:02:35,872 [INFO] __main__: [SIM] set_electrodes a=200 b=200
+2026-03-29 01:02:35,872 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=100→200 b=100→200
+2026-03-29 01:02:35,950 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:02:35,950 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:02:36,487 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:02:36,488 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No new analysis data provided for this cycle. System is still in the initial startup phase, deferring parameter adjustme
+2026-03-29 01:02:36,489 [ERROR] pipeline.fusion_pipeline: Cycle 2 error (2/5): 'InMemorySessionService' object has no attribute 'update_session'
+Traceback (most recent call last):
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 244, in run_forever
+    await self._session_service.update_session(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'InMemorySessionService' object has no attribute 'update_session'. Did you mean: 'create_session'?
+2026-03-29 01:02:38,491 [INFO] pipeline.fusion_pipeline: ── Cycle 3 ──────────────────────────────────
+2026-03-29 01:02:39,493 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=574 ewma=574.0 sse=-178.0 int_err=-178 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-29 01:02:39,572 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:02:39,572 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:02:40,391 [INFO] __main__: Signal SIGINT received — stopping pipeline after current cycle
+2026-03-29 01:02:40,398 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:02:40,399 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | Continuing the upward sweep as 'is_low' is still true, indicating the beam has not been found yet. The system is still i
+2026-03-29 01:02:40,399 [INFO] __main__: [SIM] set_electrodes a=300 b=300
+2026-03-29 01:02:40,399 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=200→300 b=200→300
+2026-03-29 01:02:40,478 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:02:40,478 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:02:41,133 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:02:41,134 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No new analysis data provided for this cycle. System is still in the initial startup phase, deferring parameter adjustme
+2026-03-29 01:02:41,135 [ERROR] pipeline.fusion_pipeline: Cycle 3 error (3/5): 'InMemorySessionService' object has no attribute 'update_session'
+Traceback (most recent call last):
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 244, in run_forever
+    await self._session_service.update_session(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'InMemorySessionService' object has no attribute 'update_session'. Did you mean: 'create_session'?
+2026-03-29 01:02:43,183 [INFO] pipeline.fusion_pipeline: Shutting down — switching Arduino to auto/backup mode
+2026-03-29 01:02:43,184 [INFO] __main__: [SIM] switched to auto mode
+2026-03-29 01:02:43,184 [INFO] pipeline.fusion_pipeline: === Fusion Pipeline Stopped ===
+2026-03-29 01:02:43,185 [INFO] __main__: [SIM] Simulated bridge disconnected
+2026-03-29 01:03:24,547 [INFO] __main__: Starting in SIMULATE mode — no Arduino required
+2026-03-29 01:03:24,547 [INFO] __main__: [SIM] Simulated bridge connected
+2026-03-29 01:03:24,548 [INFO] pipeline.fusion_pipeline: ADK session created: system / main_session
+2026-03-29 01:03:24,548 [INFO] __main__: [SIM] switched to ai mode
+2026-03-29 01:03:24,548 [INFO] pipeline.fusion_pipeline: Arduino switched to AI mode
+2026-03-29 01:03:24,548 [INFO] pipeline.fusion_pipeline: === Fusion Pipeline Started ===
+2026-03-29 01:03:24,548 [INFO] pipeline.fusion_pipeline: ── Cycle 1 ──────────────────────────────────
+2026-03-29 01:03:25,551 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=562 ewma=562.0 sse=-190.0 int_err=-190 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-29 01:03:25,668 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:03:25,670 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:03:26,460 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:03:26,461 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+160 delta_b=+160 confidence=0.70 | System starting up (is_low=True). Sweeping upward symmetrically to find the beam transmission window. Using a moderate s
+2026-03-29 01:03:26,461 [INFO] __main__: [SIM] set_electrodes a=160 b=160
+2026-03-29 01:03:26,461 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=0→160 b=0→160
+2026-03-29 01:03:26,542 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:03:26,542 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:03:27,156 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:03:27,157 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No metrics available yet for analysis. System is in initial startup phase, waiting for data to analyze and tune paramete
+2026-03-29 01:03:27,158 [ERROR] pipeline.fusion_pipeline: Cycle 1 error (1/5): 'InMemorySessionService' object has no attribute 'update_session'
+Traceback (most recent call last):
+  File "/Users/kaisprunger/demo-fusion-reactor/backend/pipeline/fusion_pipeline.py", line 242, in run_forever
+    await self._session_service.update_session(
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'InMemorySessionService' object has no attribute 'update_session'. Did you mean: 'create_session'?
+2026-03-29 01:03:28,764 [INFO] __main__: Signal SIGINT received — stopping pipeline after current cycle
+2026-03-29 01:03:29,162 [INFO] pipeline.fusion_pipeline: Shutting down — switching Arduino to auto/backup mode
+2026-03-29 01:03:29,162 [INFO] __main__: [SIM] switched to auto mode
+2026-03-29 01:03:29,162 [INFO] pipeline.fusion_pipeline: === Fusion Pipeline Stopped ===
+2026-03-29 01:03:29,163 [INFO] __main__: [SIM] Simulated bridge disconnected
+2026-03-29 01:03:49,862 [INFO] __main__: Starting in SIMULATE mode — no Arduino required
+2026-03-29 01:03:49,862 [INFO] __main__: [SIM] Simulated bridge connected
+2026-03-29 01:03:49,862 [INFO] pipeline.fusion_pipeline: ADK session created: system / main_session
+2026-03-29 01:03:49,863 [INFO] __main__: [SIM] switched to ai mode
+2026-03-29 01:03:49,863 [INFO] pipeline.fusion_pipeline: Arduino switched to AI mode
+2026-03-29 01:03:49,863 [INFO] pipeline.fusion_pipeline: === Fusion Pipeline Started ===
+2026-03-29 01:03:49,863 [INFO] pipeline.fusion_pipeline: ── Cycle 1 ──────────────────────────────────
+2026-03-29 01:03:50,866 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=567 ewma=567.0 sse=-185.0 int_err=-185 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-29 01:03:50,986 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:03:50,989 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:03:51,652 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:03:51,653 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | System is at cycle 1, no prior data. is_low is true (startup state). Initiating a symmetric upward sweep (increase_both)
+2026-03-29 01:03:51,653 [INFO] __main__: [SIM] set_electrodes a=100 b=100
+2026-03-29 01:03:51,653 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=0→100 b=0→100
+2026-03-29 01:03:51,730 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:03:51,730 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:03:52,584 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:03:52,585 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | This is the first cycle, and the decision agent is in an initial sweep phase. No parameters should be adjusted by the Im
+2026-03-29 01:03:52,586 [INFO] pipeline.fusion_pipeline: ── Cycle 2 ──────────────────────────────────
+2026-03-29 01:03:53,223 [INFO] __main__: Signal SIGINT received — stopping pipeline after current cycle
+2026-03-29 01:03:53,588 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=572 ewma=572.0 sse=-180.0 int_err=-180 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-29 01:03:53,666 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:03:53,666 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:03:54,634 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:03:54,636 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=do_nothing delta_a=+0 delta_b=+0 confidence=0.90 | The system is still settling after the initial command in cycle 1. is_settling is true, so no further action is taken to
+2026-03-29 01:03:54,637 [INFO] pipeline.agents.action_agent: ActionAgent | action=do_nothing ok=True a=100→100 b=100→100
+2026-03-29 01:03:54,723 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:03:54,723 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:03:55,657 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:03:55,657 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | The system is still settling from the initial sweep in cycle 1, as indicated by the decision agent's action. No paramete
+2026-03-29 01:03:55,658 [INFO] pipeline.fusion_pipeline: Shutting down — switching Arduino to auto/backup mode
+2026-03-29 01:03:55,658 [INFO] __main__: [SIM] switched to auto mode
+2026-03-29 01:03:55,658 [INFO] pipeline.fusion_pipeline: === Fusion Pipeline Stopped ===
+2026-03-29 01:03:55,658 [INFO] __main__: [SIM] Simulated bridge disconnected
+2026-03-29 01:22:15,726 [INFO] __main__: Starting in SIMULATE mode — no Arduino required
+2026-03-29 01:22:15,726 [INFO] __main__: [SIM] Simulated bridge connected
+2026-03-29 01:22:15,727 [INFO] pipeline.fusion_pipeline: ADK session created: system / main_session
+2026-03-29 01:22:15,727 [INFO] __main__: [SIM] switched to ai mode
+2026-03-29 01:22:15,727 [INFO] pipeline.fusion_pipeline: Arduino switched to AI mode
+2026-03-29 01:22:15,727 [INFO] pipeline.fusion_pipeline: === Fusion Pipeline Started ===
+2026-03-29 01:22:15,727 [INFO] pipeline.fusion_pipeline: ── Cycle 1 ──────────────────────────────────
+2026-03-29 01:22:16,729 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=565 ewma=565.0 sse=-187.0 int_err=-187 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-29 01:22:16,841 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:22:16,843 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:22:17,668 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:22:17,669 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+160 delta_b=+160 confidence=0.80 | System just started (cycle 1) and is_low is True. Initialising symmetric sweep upward to find the beam. Using a moderate
+2026-03-29 01:22:17,669 [INFO] __main__: [SIM] set_electrodes a=160 b=160
+2026-03-29 01:22:17,669 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=0→160 b=0→160
+2026-03-29 01:22:17,746 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:22:17,746 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:22:18,532 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:22:18,533 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | This is the first cycle, so no historical data is available to inform parameter adjustments. No changes are made.
+2026-03-29 01:22:18,534 [INFO] pipeline.fusion_pipeline: ── Cycle 2 ──────────────────────────────────
+2026-03-29 01:22:19,547 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=578 ewma=578.0 sse=-174.0 int_err=-174 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-29 01:22:19,787 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:22:19,788 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:22:20,574 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:22:20,578 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.90 | Starting up, is_low is true. Beam search rule (5) applies. Sweeping upward symmetrically with a moderate step size to fi
+2026-03-29 01:22:20,578 [INFO] __main__: [SIM] set_electrodes a=260 b=260
+2026-03-29 01:22:20,578 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=160→260 b=160→260
+2026-03-29 01:22:20,699 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:22:20,700 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:22:21,589 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:22:21,590 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No focused_analysis or recent_history provided, so no basis to adjust parameters. The system is likely in an initial sta
+2026-03-29 01:22:21,590 [INFO] pipeline.fusion_pipeline: ── Cycle 3 ──────────────────────────────────
+2026-03-29 01:22:22,592 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=575 ewma=575.0 sse=-177.0 int_err=-177 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-29 01:22:22,673 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:22:22,673 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:22:23,274 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:22:23,275 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+200 delta_b=+200 confidence=0.80 | Initialising system. is_low is True (ADC likely near zero), so sweeping upward is necessary. Starting with a moderate st
+2026-03-29 01:22:23,275 [INFO] __main__: [SIM] set_electrodes a=460 b=460
+2026-03-29 01:22:23,275 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=260→460 b=260→460
+2026-03-29 01:22:23,353 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:22:23,353 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:22:24,167 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:22:24,168 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=True params_changed={'target_adc': 600, 'max_delta': 200, 'spike_threshold': 800, 'low_threshold': 580} | The system is in its initialisation phase. The Decision Agent is performing an upward sweep to find the beam. I will set
+2026-03-29 01:22:24,168 [INFO] pipeline.fusion_pipeline: ── Cycle 4 ──────────────────────────────────
+2026-03-29 01:22:25,169 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=588 ewma=588.0 sse=-164.0 int_err=-164 cv=0.000 settling=True effectiveness=unknown spike=False low=False
+2026-03-29 01:22:25,248 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:22:25,248 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:22:26,000 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:22:26,001 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=do_nothing delta_a=+0 delta_b=+0 confidence=0.10 | System is at the very beginning of operation (cycle 4). No meaningful data yet to make a decision. Waiting for more read
+2026-03-29 01:22:26,001 [INFO] pipeline.agents.action_agent: ActionAgent | action=do_nothing ok=True a=460→460 b=460→460
+2026-03-29 01:22:26,079 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:22:26,079 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:22:26,915 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:22:26,915 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | The system is very early in its operation (cycle 4) and has not yet gathered sufficient data to establish a stable basel
+2026-03-29 01:22:26,916 [INFO] pipeline.fusion_pipeline: ── Cycle 5 ──────────────────────────────────
+2026-03-29 01:22:27,918 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=588 ewma=588.0 sse=-164.0 int_err=-164 cv=0.000 settling=True effectiveness=unknown spike=False low=False
+2026-03-29 01:22:27,995 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:22:27,996 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:22:28,865 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:22:28,866 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+128 delta_b=+128 confidence=0.80 | System is initializing (is_low=True, cycle < 10). Rule 5 (Beam Search) applies. Increasing electrode voltages symmetrica
+2026-03-29 01:22:28,866 [INFO] __main__: [SIM] set_electrodes a=588 b=588
+2026-03-29 01:22:28,866 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=460→588 b=460→588
+2026-03-29 01:22:28,943 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:22:28,944 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:22:29,173 [INFO] __main__: Signal SIGINT received — stopping pipeline after current cycle
+2026-03-29 01:22:29,679 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:22:29,680 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No analysis data provided. The system is in its initial cycles (cycle 5), and the decision agent is performing an initia
+2026-03-29 01:22:29,680 [INFO] pipeline.fusion_pipeline: Shutting down — switching Arduino to auto/backup mode
+2026-03-29 01:22:29,681 [INFO] __main__: [SIM] switched to auto mode
+2026-03-29 01:22:29,681 [INFO] pipeline.fusion_pipeline: === Fusion Pipeline Stopped ===
+2026-03-29 01:22:29,681 [INFO] __main__: [SIM] Simulated bridge disconnected
+2026-03-29 01:32:42,491 [INFO] __main__: Starting in SIMULATE mode — no Arduino required
+2026-03-29 01:32:42,492 [INFO] __main__: [SIM] Simulated bridge connected
+2026-03-29 01:32:42,493 [INFO] pipeline.fusion_pipeline: ADK session created: system / main_session
+2026-03-29 01:32:42,493 [INFO] __main__: [SIM] switched to ai mode
+2026-03-29 01:32:42,493 [INFO] pipeline.fusion_pipeline: Arduino switched to AI mode
+2026-03-29 01:32:42,493 [INFO] pipeline.fusion_pipeline: === Fusion Pipeline Started ===
+2026-03-29 01:32:42,493 [INFO] pipeline.fusion_pipeline: ── Cycle 1 ──────────────────────────────────
+2026-03-29 01:32:43,495 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=566 ewma=566.0 sse=-186.0 int_err=-186 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-29 01:32:43,611 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:32:43,612 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:32:44,399 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:32:44,401 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | System just started (cycle 1). is_low is true and electrodes are symmetric, indicating the need to sweep upwards to find
+2026-03-29 01:32:44,401 [INFO] __main__: [SIM] set_electrodes a=100 b=100
+2026-03-29 01:32:44,401 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=0→100 b=0→100
+2026-03-29 01:32:44,481 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:32:44,481 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:32:45,210 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:32:45,211 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No analysis data is provided for this cycle. Therefore, no changes can be made to the control parameters. Waiting for fo
+2026-03-29 01:32:45,211 [INFO] pipeline.fusion_pipeline: ── Cycle 2 ──────────────────────────────────
+2026-03-29 01:32:46,213 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=2 adc=568 ewma=566.6 sse=-185.4 int_err=-370 cv=0.003 settling=True effectiveness=effective spike=False low=True
+2026-03-29 01:32:46,294 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:32:46,294 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:32:46,955 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:32:46,956 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=do_nothing delta_a=+0 delta_b=+0 confidence=0.50 | No analysis data provided from the previous cycle. Cannot make a decision. Action is 'do_nothing' until new metrics are 
+2026-03-29 01:32:46,956 [INFO] pipeline.agents.action_agent: ActionAgent | action=do_nothing ok=True a=100→100 b=100→100
+2026-03-29 01:32:47,035 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:32:47,036 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:32:47,568 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:32:47,569 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No analysis data is provided for this cycle. Therefore, no changes can be made to the control parameters. Waiting for fo
+2026-03-29 01:32:47,569 [INFO] pipeline.fusion_pipeline: ── Cycle 3 ──────────────────────────────────
+2026-03-29 01:32:48,571 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=3 adc=569 ewma=567.3 sse=-184.7 int_err=-553 cv=0.003 settling=True effectiveness=unknown spike=False low=True
+2026-03-29 01:32:48,650 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:32:48,650 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:32:49,204 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:32:49,205 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=do_nothing delta_a=+0 delta_b=+0 confidence=0.50 | No analysis data provided from the previous cycle. Cannot make a decision. Action is 'do_nothing' until new metrics are 
+2026-03-29 01:32:49,205 [INFO] pipeline.agents.action_agent: ActionAgent | action=do_nothing ok=True a=100→100 b=100→100
+2026-03-29 01:32:49,284 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:32:49,284 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:32:49,922 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:32:49,923 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No analysis data is provided for this cycle. Therefore, no changes can be made to the control parameters. Waiting for fo
+2026-03-29 01:32:49,923 [INFO] pipeline.fusion_pipeline: ── Cycle 4 ──────────────────────────────────
+2026-03-29 01:32:50,925 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=4 adc=568 ewma=567.5 sse=-184.5 int_err=-737 cv=0.002 settling=False effectiveness=unknown spike=False low=True
+2026-03-29 01:32:51,005 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:32:51,005 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:32:51,663 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:32:51,664 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=do_nothing delta_a=+0 delta_b=+0 confidence=0.50 | No analysis data provided from the previous cycle. Cannot make a decision. Action is 'do_nothing' until new metrics are 
+2026-03-29 01:32:51,664 [INFO] pipeline.agents.action_agent: ActionAgent | action=do_nothing ok=True a=100→100 b=100→100
+2026-03-29 01:32:51,741 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:32:51,741 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:32:52,277 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:32:52,278 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No analysis data is provided for this cycle. Therefore, no changes can be made to the control parameters. Waiting for fo
+2026-03-29 01:32:52,278 [INFO] pipeline.fusion_pipeline: ── Cycle 5 ──────────────────────────────────
+2026-03-29 01:32:53,281 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=5 adc=565 ewma=566.8 sse=-185.2 int_err=-924 cv=0.003 settling=False effectiveness=unknown spike=False low=True
+2026-03-29 01:32:53,360 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:32:53,361 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:32:54,140 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:32:54,141 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=do_nothing delta_a=+0 delta_b=+0 confidence=0.50 | No analysis data provided from the previous cycle. Cannot make a decision. Action is 'do_nothing' until new metrics are 
+2026-03-29 01:32:54,141 [INFO] pipeline.agents.action_agent: ActionAgent | action=do_nothing ok=True a=100→100 b=100→100
+2026-03-29 01:32:54,243 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:32:54,244 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:32:54,845 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:32:54,846 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No analysis data is provided for this cycle. Therefore, no changes can be made to the control parameters. Waiting for fo
+2026-03-29 01:32:54,846 [INFO] pipeline.fusion_pipeline: ── Cycle 6 ──────────────────────────────────
+2026-03-29 01:32:55,850 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=6 adc=570 ewma=567.7 sse=-184.3 int_err=-1106 cv=0.003 settling=False effectiveness=unknown spike=False low=True
+2026-03-29 01:32:55,935 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:32:55,936 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:32:56,675 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:32:56,675 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=do_nothing delta_a=+0 delta_b=+0 confidence=0.50 | No analysis data provided from the previous cycle. Cannot make a decision. Action is 'do_nothing' until new metrics are 
+2026-03-29 01:32:56,675 [INFO] pipeline.agents.action_agent: ActionAgent | action=do_nothing ok=True a=100→100 b=100→100
+2026-03-29 01:32:56,753 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:32:56,753 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:32:57,500 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:32:57,501 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No analysis data is provided for this cycle. Therefore, no changes can be made to the control parameters. Waiting for fo
+2026-03-29 01:32:57,501 [INFO] pipeline.fusion_pipeline: ── Cycle 7 ──────────────────────────────────
+2026-03-29 01:32:57,834 [INFO] __main__: Signal SIGINT received — stopping pipeline after current cycle
+2026-03-29 01:32:58,504 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=7 adc=568 ewma=567.8 sse=-184.2 int_err=-1290 cv=0.003 settling=False effectiveness=unknown spike=False low=True
+2026-03-29 01:32:58,585 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:32:58,585 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:32:59,293 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:32:59,294 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=do_nothing delta_a=+0 delta_b=+0 confidence=0.50 | No analysis data provided from the previous cycle. Cannot make a decision. Action is 'do_nothing' until new metrics are 
+2026-03-29 01:32:59,294 [INFO] pipeline.agents.action_agent: ActionAgent | action=do_nothing ok=True a=100→100 b=100→100
+2026-03-29 01:32:59,374 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:32:59,375 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:33:00,162 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:33:00,163 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No analysis data is provided for this cycle. Therefore, no changes can be made to the control parameters. Waiting for fo
+2026-03-29 01:33:00,163 [INFO] pipeline.fusion_pipeline: Shutting down — switching Arduino to auto/backup mode
+2026-03-29 01:33:00,164 [INFO] __main__: [SIM] switched to auto mode
+2026-03-29 01:33:00,164 [INFO] pipeline.fusion_pipeline: === Fusion Pipeline Stopped ===
+2026-03-29 01:33:00,164 [INFO] __main__: [SIM] Simulated bridge disconnected
+2026-03-29 01:37:57,517 [INFO] __main__: Starting in SIMULATE mode — no Arduino required
+2026-03-29 01:37:57,518 [INFO] __main__: [SIM] Simulated bridge connected
+2026-03-29 01:37:57,518 [INFO] pipeline.fusion_pipeline: ADK session created: system / main_session
+2026-03-29 01:37:57,518 [INFO] __main__: [SIM] switched to ai mode
+2026-03-29 01:37:57,518 [INFO] pipeline.fusion_pipeline: Arduino switched to AI mode
+2026-03-29 01:37:57,519 [INFO] pipeline.fusion_pipeline: === Fusion Pipeline Started ===
+2026-03-29 01:37:57,519 [INFO] pipeline.fusion_pipeline: ── Cycle 1 ──────────────────────────────────
+2026-03-29 01:37:58,520 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=569 ewma=569.0 sse=-183.0 int_err=-183 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-29 01:37:58,633 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:37:58,636 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:37:59,590 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:37:59,591 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | System is initializing (cycle 0 or 1) and is_low is true, indicating the beam needs to be found. Rule 5 (Beam Search) ap
+2026-03-29 01:37:59,591 [INFO] __main__: [SIM] set_electrodes a=100 b=100
+2026-03-29 01:37:59,592 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=0→100 b=0→100
+2026-03-29 01:37:59,669 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:37:59,669 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:38:00,256 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:38:00,257 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | The system is in its initial cycles and the decision agent is actively searching for the beam. No parameters should be a
+2026-03-29 01:38:00,258 [INFO] pipeline.fusion_pipeline: ── Cycle 2 ──────────────────────────────────
+2026-03-29 01:38:01,260 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=2 adc=567 ewma=568.4 sse=-183.6 int_err=-368 cv=0.003 settling=True effectiveness=reversed spike=False low=True
+2026-03-29 01:38:01,344 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:38:01,344 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:38:02,146 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:38:02,147 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | System is still in early cycles and is_low is true. Rule 5 (Beam Search) continues to apply. We are still sweeping upwar
+2026-03-29 01:38:02,147 [INFO] __main__: [SIM] set_electrodes a=200 b=200
+2026-03-29 01:38:02,147 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=100→200 b=100→200
+2026-03-29 01:38:02,226 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:38:02,226 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:38:02,970 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:38:02,971 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | The system is still in its initial search phase as indicated by the decision agent's action and reasoning. The improveme
+2026-03-29 01:38:02,971 [INFO] pipeline.fusion_pipeline: ── Cycle 3 ──────────────────────────────────
+2026-03-29 01:38:03,973 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=3 adc=571 ewma=569.2 sse=-182.8 int_err=-549 cv=0.004 settling=True effectiveness=effective spike=False low=True
+2026-03-29 01:38:04,051 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:38:04,052 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:38:06,960 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:38:06,961 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | The system is still in the initial search phase, with 'is_low' still true. Rule 5 (Beam Search) is still the primary dri
+2026-03-29 01:38:06,961 [INFO] __main__: [SIM] set_electrodes a=300 b=300
+2026-03-29 01:38:06,961 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=200→300 b=200→300
+2026-03-29 01:38:07,039 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:38:07,040 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:38:07,948 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:38:07,950 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | The system is still in the initial beam search phase, with the decision agent continuing to increase electrode voltages.
+2026-03-29 01:38:07,950 [INFO] pipeline.fusion_pipeline: ── Cycle 4 ──────────────────────────────────
+2026-03-29 01:38:08,954 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=4 adc=582 ewma=573.0 sse=-179.0 int_err=-719 cv=0.012 settling=True effectiveness=effective spike=False low=False
+2026-03-29 01:38:09,034 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:38:09,034 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:38:09,717 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:38:09,718 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | The system is still in the initial search phase, with 'is_low' likely still true or the beam just being found. Rule 5 (B
+2026-03-29 01:38:09,718 [INFO] __main__: [SIM] set_electrodes a=400 b=400
+2026-03-29 01:38:09,718 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=300→400 b=300→400
+2026-03-29 01:38:09,795 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:38:09,795 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:38:10,441 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:38:10,442 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | The system is still in its initial beam search phase, with the decision agent increasing electrode voltages. The improve
+2026-03-29 01:38:10,442 [INFO] pipeline.fusion_pipeline: ── Cycle 5 ──────────────────────────────────
+2026-03-29 01:38:11,446 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=5 adc=585 ewma=576.6 sse=-175.4 int_err=-886 cv=0.014 settling=True effectiveness=effective spike=False low=False
+2026-03-29 01:38:11,527 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:38:11,527 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:38:12,189 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:38:12,190 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | The system is still in the initial search phase, and 'is_low' is likely still true or the beam is just being detected. R
+2026-03-29 01:38:12,190 [INFO] __main__: [SIM] set_electrodes a=500 b=500
+2026-03-29 01:38:12,191 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=400→500 b=400→500
+2026-03-29 01:38:12,269 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:38:12,269 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:38:12,759 [INFO] __main__: Signal SIGINT received — stopping pipeline after current cycle
+2026-03-29 01:38:13,076 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:38:13,076 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | The system remains in the initial beam search phase, as indicated by the decision agent's continued upward sweep of elec
+2026-03-29 01:38:13,077 [INFO] pipeline.fusion_pipeline: Shutting down — switching Arduino to auto/backup mode
+2026-03-29 01:38:13,077 [INFO] __main__: [SIM] switched to auto mode
+2026-03-29 01:38:13,077 [INFO] pipeline.fusion_pipeline: === Fusion Pipeline Stopped ===
+2026-03-29 01:38:13,077 [INFO] __main__: [SIM] Simulated bridge disconnected

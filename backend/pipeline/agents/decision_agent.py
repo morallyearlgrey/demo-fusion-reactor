@@ -8,6 +8,7 @@ from typing import AsyncGenerator
 from google.adk.agents import LlmAgent
 from google.adk.agents.invocation_context import InvocationContext
 from google.adk.events import Event
+from google.adk.events.event_actions import EventActions
 
 logger = logging.getLogger(__name__)
 
@@ -305,10 +306,11 @@ class DecisionAgent(LlmAgent):
         raw_decision_text = ""
         async for event in super()._run_async_impl(ctx):
             if hasattr(event, "content") and event.content:
-                parts = event.content.get("parts", [])
+                parts = event.content.parts or []
                 for part in parts:
-                    if "text" in part:
-                        raw_decision_text += part["text"]
+                    text = getattr(part, "text", None)
+                    if text:
+                        raw_decision_text += text
             yield event
 
         # pxarse decision JSON
@@ -343,4 +345,12 @@ class DecisionAgent(LlmAgent):
             decision.get("electrode_b_delta", 0),
             decision.get("confidence", 0),
             decision.get("reasoning", "")[:120],
+        )
+
+        # Emit state_delta so ADK flushes the decision back to the storage
+        # session via append_event. Without this, ImprovementAgent reads an
+        # empty decision dict every cycle.
+        yield Event(
+            author=self.name,
+            actions=EventActions(state_delta={"decision": decision}),
         )

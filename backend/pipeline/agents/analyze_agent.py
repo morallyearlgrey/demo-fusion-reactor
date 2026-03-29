@@ -7,6 +7,7 @@ from typing import AsyncGenerator
 from google.adk.agents import BaseAgent
 from google.adk.agents.invocation_context import InvocationContext
 from google.adk.events import Event
+from google.adk.events.event_actions import EventActions
  
 from pipeline.tools.reactor_tools import get_latest_reading
 
@@ -323,8 +324,22 @@ class AnalyzeAgent(BaseAgent):
             integral_err, cv, settling, effectiveness, is_spike, is_low,
         )
 
+        # Emit state_delta so ADK's append_event flushes these writes
+        # back to the storage session. Without this, ctx.session.state writes
+        # only live on the in-memory copy and are lost between run_async calls.
+        state_delta = {
+            "raw_adc":            raw_adc,
+            "electrode_a":        electrode_a,
+            "electrode_b":        electrode_b,
+            "cycle_count":        cycle_count,
+            "last_command_cycle": ctx.session.state.get("last_command_cycle", 0),
+            "history":            history,
+            "analysis":           analysis,
+        }
+
         yield Event(
             author=self.name,
+            actions=EventActions(state_delta=state_delta),
             content={
                 "parts": [{
                     "text": (

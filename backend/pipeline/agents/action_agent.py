@@ -4,6 +4,7 @@ from typing import AsyncGenerator
 from google.adk.agents import BaseAgent
 from google.adk.agents.invocation_context import InvocationContext
 from google.adk.events import Event
+from google.adk.events.event_actions import EventActions
 from google.genai.types import Content, Part
 
 from pipeline.tools.reactor_tools import (
@@ -132,15 +133,28 @@ class ActionAgent(BaseAgent):
             electrode_b, ctx.session.state.get("electrode_b"),
             )
 
+        # Build state_delta for everything ActionAgent may have written,
+        # so ADK flushes these back to the storage session via append_event.
+        action_state_delta: dict = {
+            "last_action": result,
+        }
+        # Only include electrode values and last_command_cycle if they changed
+        new_a = ctx.session.state.get("electrode_a", electrode_a)
+        new_b = ctx.session.state.get("electrode_b", electrode_b)
+        if new_a != electrode_a or new_b != electrode_b:
+            action_state_delta["electrode_a"] = new_a
+            action_state_delta["electrode_b"] = new_b
+            action_state_delta["last_command_cycle"] = ctx.session.state.get("last_command_cycle", 0)
+
         yield Event(
             author=self.name,
+            actions=EventActions(state_delta=action_state_delta),
             content=Content(parts=[
                 Part(text=(
                     f"[ActionAgent] Executed '{action}' | "
-                    f"electrode_a: {electrode_a} → {ctx.session.state.get('electrode_a', electrode_a)} | "
-                    f"electrode_b: {electrode_b} → {ctx.session.state.get('electrode_b', electrode_b)} | "
+                    f"electrode_a: {electrode_a} → {new_a} | "
+                    f"electrode_b: {electrode_b} → {new_b} | "
                     f"ok={result.get('ok')}"
-        ))
-    ])
-)
-
+                ))
+            ])
+        )

@@ -7,6 +7,7 @@ from typing import AsyncGenerator
 from google.adk.agents import LlmAgent
 from google.adk.agents.invocation_context import InvocationContext
 from google.adk.events import Event
+from google.adk.events.event_actions import EventActions
 
 logger = logging.getLogger(__name__)
 
@@ -248,10 +249,11 @@ class ImprovementAgent(LlmAgent):
         raw_text = ""
         async for event in super()._run_async_impl(ctx):
             if hasattr(event, "content") and event.content:
-                parts = event.content.get("parts", [])
+                parts = event.content.parts or []
                 for part in parts:
-                    if "text" in part:
-                        raw_text += part["text"]
+                    text = getattr(part, "text", None)
+                    if text:
+                        raw_text += text
             yield event
 
         # parse LLM response
@@ -296,8 +298,22 @@ class ImprovementAgent(LlmAgent):
             improvements.get("reasoning", "N/A")[:120],
         )
 
+        # Emit state_delta so ADK flushes these writes back to storage
+        # via append_event. Any key ImprovementAgent may have updated goes here.
+        improvement_state_delta: dict = {
+            "improvement_result": {
+                "improvements":  improvements,
+                "params_changed": params_changed,
+            },
+        }
+        # Only include tuning params that actually changed
+        for key in ("target_adc", "max_delta", "spike_threshold", "low_threshold"):
+            if key in params_changed:
+                improvement_state_delta[key] = params_changed[key]
+
         yield Event(
             author=self.name,
+            actions=EventActions(state_delta=improvement_state_delta),
             content={
                 "parts": [{
                     "text": (
