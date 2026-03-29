@@ -94,7 +94,7 @@ DEFAULT_STATE: dict = {
     "_improvement_prompt": "",
 }
 
-# whole pipeline 
+# whole pipeline sequential flow typeshit
 def build_pipeline(model: str = "gemini-2.5-flash-lite") -> SequentialAgent:
     return SequentialAgent(
         name="fusion_cycle",
@@ -106,3 +106,116 @@ def build_pipeline(model: str = "gemini-2.5-flash-lite") -> SequentialAgent:
             ImprovementAgent(model=model),
         ],
     )
+
+# handles startup, shutdown, per cycle stuff
+#infinite loop
+# lowkey just boilerplate code
+class FusionPipelineRunner:
+ 
+    APP_NAME   = "fusion_reactor"
+    USER_ID    = "system"
+    SESSION_ID = "main_session"
+ 
+    def __init__(
+        self,
+        bridge,
+        model: str = "gemini-2.5-flash-lite",
+        initial_state: dict | None = None,
+    ):
+        self._bridge        = bridge
+        self._model         = model
+        self._initial_state = initial_state or DEFAULT_STATE.copy()
+        self._running       = False
+ 
+        # ADK infrastructure
+        self._session_service = InMemorySessionService()
+        self._pipeline        = build_pipeline(model=model)
+        self._runner          = Runner(
+            agent=self._pipeline,
+            app_name=self.APP_NAME,
+            session_service=self._session_service,
+        )
+ 
+    # sets the session state loll and starts the adk sht
+    async def _create_session(self):
+        await self._session_service.create_session(
+            app_name=self.APP_NAME,
+            user_id=self.USER_ID,
+            session_id=self.SESSION_ID,
+            state=self._initial_state.copy(),
+        )
+        logger.info("ADK session created: %s / %s", self.USER_ID, self.SESSION_ID)
+ 
+    # execute one full cycle 
+    async def _run_one_cycle(self, cycle: int):
+        from google.genai.types import Content, Part
+ 
+       
+        # adk is funky as hell and needs a user msg to trigger
+        # uses a single clock tick message, all good bc state has stuff we need
+        tick_msg = Content(
+            parts=[Part(text=f"cycle={cycle} ts={datetime.utcnow().isoformat()}")],
+            role="user",
+        )
+ 
+        async for event in self._runner.run_async(
+            user_id=self.USER_ID,
+            session_id=self.SESSION_ID,
+            new_message=tick_msg,
+        ):
+            # log significant events
+            author = getattr(event, "author", "?")
+            if hasattr(event, "content") and event.content:
+                parts = event.content.get("parts", [])
+                for part in parts:
+                    if "text" in part and part["text"].strip():
+                        logger.debug("[%s] %s", author, part["text"].strip()[:200])
+ 
+    # execute infinite full cycle 
+    async def run_forever(self):
+        
+        # Initialise tool bridge reference
+        init_tools(self._bridge)
+ 
+        # Create session
+        await self._create_session()
+ 
+        # Switch Arduino to AI mode
+        set_ai_mode() # CHECK THAT THIS IS THE RIGHT FUNCTION NAME
+        logger.info("Arduino switched to AI mode")
+ 
+        self._running = True
+        cycle = 0
+ 
+        logger.info("=== Fusion Pipeline Started ===")
+        try:
+            while self._running:
+                cycle += 1
+                logger.info("── Cycle %d ──────────────────────────────────", cycle)
+                try:
+                    await self._run_one_cycle(cycle)
+                except asyncio.CancelledError:
+                    raise
+                except Exception as exc:
+                    logger.error("Cycle %d error: %s", cycle, exc, exc_info=True)
+                    # Don't crash the loop on transient errors
+                    await asyncio.sleep(2.0)
+ 
+        except asyncio.CancelledError:
+            logger.info("Pipeline cancelled")
+        finally:
+            await self._shutdown()
+ 
+    # switches to backup
+    async def _shutdown(self):
+        logger.info("Shutting down — switching Arduino to auto/backup mode")
+        try:
+            set_backup()
+        except Exception as exc:
+            logger.warning("Could not switch to backup mode: %s", exc)
+        self._running = False
+        logger.info("=== Fusion Pipeline Stopped ===")
+ 
+    # stops loop fully
+    def stop(self):
+        self._running = False
