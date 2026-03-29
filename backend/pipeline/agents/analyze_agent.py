@@ -127,7 +127,7 @@ def is_settling(
     settle_timeout: int = SETTLE_TIMEOUT,
 ) -> bool:
     # timeout: been too long since last command, declare settled
-    if cycles_since_command > settle_timeout:
+    if cycles_since_command >= settle_timeout:
         return False
 
     # not enough history yet
@@ -140,14 +140,15 @@ def is_settling(
 
 # basic class lol
 class AnalyzeAgent(BaseAgent):
-    name: str = "analyze_agent"
-    description: str = (
-        "Reads sensor data in, saves to session state, updates history with all session states/reading, and computes the drift/error analysis based off previous history"
-
-    )
-
     def __init__(self):
-        super().__init__(name=self.name, description=self.description)
+        super().__init__(
+        name="analyze_agent",
+        description=(
+            "Reads sensor data in, saves to session state, updates history "
+            "with all session states/reading, and computes the drift/error "
+            "analysis based off previous history"
+        ),
+    )
 
     async def _run_async_impl(self, ctx: InvocationContext) -> AsyncGenerator[Event, None]:
         
