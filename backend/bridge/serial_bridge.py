@@ -135,26 +135,32 @@ class SerialBridge:
             self._ser.flush()
         logger.debug("Sent: %s", data.strip())
     
+    #retrieves the most recent reading, as we only need the most recent one.
     def get_latest_reading(self) -> dict:
         with self._lock:
             return self._latest_reading.to_dict()
     
+    # sets both electrodes to value simultanesouly
     def set_electrodes(self, a: int, b: int) -> dict:
         a = max(0, min(4095, int(a)))
         b = max(0, min(4095, int(b)))
         self._send({"type": "command", "cmd": "set_electrodes", "a": a, "b": b})
         return {"ok": True, "electrode_a": a, "electrode_b": b}
     
+    # sets electrode a only
     def set_electrode_a(self, value: int) -> dict:
         value = max(0, min(4095, int(value)))
         self._send({"type": "command", "cmd" : "set_electrode_a", "value": value})
         return {"ok": True, "electrode_a": value}
     
+    # electrode b only
     def set_electrode_b(self, value: int) -> dict:
         value = max(0, min(4095, int(value)))
         self._send({"type": "command", "cmd" : "set_electrode_b", "value": value})
         return {"ok": True, "electrode_b": value}
 
+    # updates runtime parameters on Arduino
+    # only fields that arent none will be changed
     def set_params(
             self,
             target_adc: Optional[int] = None,
@@ -191,10 +197,12 @@ class SerialBridge:
         return {"ok": True, "updated_params": params_sent}
 
     def set_backup(self)->dict:
+        # sets arduino to auto mode in case agents f up
         self._send({"type": "backup"})
         return {"ok": True, "mode": "auto"}
 
     def set_ai_mode(self) -> dict:
+        # ai mode brah
         self._send({"type": "ai"})
         return {"ok": True, "mode": "ai"}
 
