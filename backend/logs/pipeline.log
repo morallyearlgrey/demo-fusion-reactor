@@ -1387,3 +1387,254 @@ AttributeError: 'InMemorySessionService' object has no attribute 'update_session
 2026-03-29 01:38:13,077 [INFO] __main__: [SIM] switched to auto mode
 2026-03-29 01:38:13,077 [INFO] pipeline.fusion_pipeline: === Fusion Pipeline Stopped ===
 2026-03-29 01:38:13,077 [INFO] __main__: [SIM] Simulated bridge disconnected
+2026-03-29 01:43:54,895 [INFO] __main__: Starting in SIMULATE mode — no Arduino required
+2026-03-29 01:43:54,897 [INFO] __main__: [SIM] Simulated bridge connected
+2026-03-29 01:43:54,898 [INFO] pipeline.fusion_pipeline: ADK session created: system / main_session
+2026-03-29 01:43:54,898 [INFO] __main__: [SIM] switched to ai mode
+2026-03-29 01:43:54,899 [INFO] pipeline.fusion_pipeline: Arduino switched to AI mode
+2026-03-29 01:43:54,899 [INFO] pipeline.fusion_pipeline: === Fusion Pipeline Started ===
+2026-03-29 01:43:54,899 [INFO] pipeline.fusion_pipeline: ── Cycle 1 ──────────────────────────────────
+2026-03-29 01:43:55,903 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=1 adc=567 ewma=567.0 sse=-185.0 int_err=-185 cv=0.000 settling=True effectiveness=unknown spike=False low=True
+2026-03-29 01:43:56,053 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:43:56,055 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:43:56,872 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:43:56,874 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | System is starting up (cycle 1), is_low is True. Beginning a symmetric upward sweep to find the electron beam by increas
+2026-03-29 01:43:56,875 [INFO] __main__: [SIM] set_electrodes a=100 b=100
+2026-03-29 01:43:56,875 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=0→100 b=0→100
+2026-03-29 01:43:56,959 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:43:56,959 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:43:57,686 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:43:57,687 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No focused_analysis available for this first cycle. No parameters are modified as the system is in initial startup.
+2026-03-29 01:43:57,688 [INFO] pipeline.fusion_pipeline: ── Cycle 2 ──────────────────────────────────
+2026-03-29 01:43:58,692 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=2 adc=572 ewma=568.5 sse=-183.5 int_err=-365 cv=0.006 settling=True effectiveness=effective spike=False low=True
+2026-03-29 01:43:58,782 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:43:58,782 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:43:59,633 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:43:59,634 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | System is still in the initial sweep phase (cycle 2). is_low is True and no beam signal has been detected yet. Continuin
+2026-03-29 01:43:59,635 [INFO] __main__: [SIM] set_electrodes a=200 b=200
+2026-03-29 01:43:59,635 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=100→200 b=100→200
+2026-03-29 01:43:59,722 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:43:59,722 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:44:00,353 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:44:00,355 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No focused_analysis provided for this cycle. The system is still in its initial startup phase, so no parameter adjustmen
+2026-03-29 01:44:00,355 [INFO] pipeline.fusion_pipeline: ── Cycle 3 ──────────────────────────────────
+2026-03-29 01:44:01,358 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=3 adc=574 ewma=570.1 sse=-181.8 int_err=-543 cv=0.006 settling=True effectiveness=effective spike=False low=True
+2026-03-29 01:44:01,446 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:44:01,446 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:44:02,192 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:44:02,193 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | Continuing the upward sweep for beam search as is_low is still True. This is cycle 3 and no signal has been detected yet
+2026-03-29 01:44:02,194 [INFO] __main__: [SIM] set_electrodes a=300 b=300
+2026-03-29 01:44:02,194 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=200→300 b=200→300
+2026-03-29 01:44:02,287 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:44:02,287 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:44:02,807 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:44:02,808 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No focused_analysis provided for this cycle. The system remains in its initial startup phase, so no parameter adjustment
+2026-03-29 01:44:02,809 [INFO] pipeline.fusion_pipeline: ── Cycle 4 ──────────────────────────────────
+2026-03-29 01:44:03,813 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=4 adc=579 ewma=572.8 sse=-179.2 int_err=-716 cv=0.009 settling=True effectiveness=effective spike=False low=True
+2026-03-29 01:44:03,907 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:44:03,907 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:44:04,547 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:44:04,549 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | The system is still in the beam search phase as is_low is True. Continuing to sweep upwards symmetrically to find the be
+2026-03-29 01:44:04,549 [INFO] __main__: [SIM] set_electrodes a=400 b=400
+2026-03-29 01:44:04,549 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=300→400 b=300→400
+2026-03-29 01:44:04,638 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:44:04,638 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:44:05,156 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:44:05,158 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No focused_analysis available for this cycle. The system is still in its initial startup phase, thus no parameter adjust
+2026-03-29 01:44:05,158 [INFO] pipeline.fusion_pipeline: ── Cycle 5 ──────────────────────────────────
+2026-03-29 01:44:06,164 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=5 adc=581 ewma=575.3 sse=-176.7 int_err=-887 cv=0.010 settling=True effectiveness=effective spike=False low=False
+2026-03-29 01:44:06,252 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:44:06,252 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:44:07,006 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:44:07,008 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | Still in the beam search phase (is_low is True). Continuing to sweep upwards symmetrically.
+2026-03-29 01:44:07,008 [INFO] __main__: [SIM] set_electrodes a=500 b=500
+2026-03-29 01:44:07,008 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=400→500 b=400→500
+2026-03-29 01:44:07,098 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:44:07,099 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:44:07,723 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:44:07,726 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No focused_analysis provided for this cycle. The system is still in its initial startup phase, so no parameter adjustmen
+2026-03-29 01:44:07,726 [INFO] pipeline.fusion_pipeline: ── Cycle 6 ──────────────────────────────────
+2026-03-29 01:44:08,733 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=6 adc=595 ewma=581.2 sse=-170.8 int_err=-1044 cv=0.017 settling=True effectiveness=effective spike=False low=False
+2026-03-29 01:44:08,824 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:44:08,825 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:44:09,669 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:44:09,671 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | Continuing the upward sweep for beam search as is_low remains True. No signal detected yet.
+2026-03-29 01:44:09,671 [INFO] __main__: [SIM] set_electrodes a=600 b=600
+2026-03-29 01:44:09,671 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=500→600 b=500→600
+2026-03-29 01:44:09,755 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:44:09,755 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:44:10,245 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:44:10,247 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No focused_analysis available for this cycle. The system is still in its initial startup phase, thus no parameter adjust
+2026-03-29 01:44:10,248 [INFO] pipeline.fusion_pipeline: ── Cycle 7 ──────────────────────────────────
+2026-03-29 01:44:11,255 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=7 adc=599 ewma=586.5 sse=-165.5 int_err=-1197 cv=0.021 settling=True effectiveness=effective spike=False low=False
+2026-03-29 01:44:11,340 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:44:11,340 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:44:12,124 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:44:12,126 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | Still searching for the beam as is_low is True. Continuing symmetric upward sweep.
+2026-03-29 01:44:12,127 [INFO] __main__: [SIM] set_electrodes a=700 b=700
+2026-03-29 01:44:12,127 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=600→700 b=600→700
+2026-03-29 01:44:12,217 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:44:12,217 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:44:12,945 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:44:12,946 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No focused_analysis provided for this cycle. The system is still in its initial startup phase, so no parameter adjustmen
+2026-03-29 01:44:12,947 [INFO] pipeline.fusion_pipeline: ── Cycle 8 ──────────────────────────────────
+2026-03-29 01:44:13,955 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=8 adc=609 ewma=593.3 sse=-158.7 int_err=-1340 cv=0.025 settling=True effectiveness=effective spike=False low=False
+2026-03-29 01:44:14,048 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:44:14,049 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:44:14,689 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:44:14,691 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | Continuing upward sweep for beam search (is_low is True). No signal detected yet.
+2026-03-29 01:44:14,692 [INFO] __main__: [SIM] set_electrodes a=800 b=800
+2026-03-29 01:44:14,692 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=700→800 b=700→800
+2026-03-29 01:44:14,778 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:44:14,779 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:44:15,607 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:44:15,609 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No focused_analysis available for this cycle. The system is still in its initial startup phase, thus no parameter adjust
+2026-03-29 01:44:15,610 [INFO] pipeline.fusion_pipeline: ── Cycle 9 ──────────────────────────────────
+2026-03-29 01:44:16,619 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=9 adc=613 ewma=599.2 sse=-152.8 int_err=-1479 cv=0.029 settling=True effectiveness=effective spike=False low=False
+2026-03-29 01:44:16,708 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:44:16,709 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:44:17,347 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:44:17,348 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | Still in the beam search phase as is_low is True. Continuing symmetric upward sweep.
+2026-03-29 01:44:17,348 [INFO] __main__: [SIM] set_electrodes a=900 b=900
+2026-03-29 01:44:17,348 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=800→900 b=800→900
+2026-03-29 01:44:17,431 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:44:17,432 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:44:18,066 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:44:18,069 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No focused_analysis provided for this cycle. The system is still in its initial startup phase, so no parameter adjustmen
+2026-03-29 01:44:18,069 [INFO] pipeline.fusion_pipeline: ── Cycle 10 ──────────────────────────────────
+2026-03-29 01:44:19,076 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=10 adc=624 ewma=606.6 sse=-145.4 int_err=-1607 cv=0.033 settling=True effectiveness=effective spike=False low=False
+2026-03-29 01:44:19,171 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:44:19,172 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:44:19,809 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:44:19,813 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | Continuing the upward sweep for beam search (is_low is True). No signal detected yet.
+2026-03-29 01:44:19,813 [INFO] __main__: [SIM] set_electrodes a=1000 b=1000
+2026-03-29 01:44:19,813 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=900→1000 b=900→1000
+2026-03-29 01:44:19,903 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:44:19,904 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:44:20,523 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:44:20,525 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No focused_analysis available for this cycle. The system is still in its initial startup phase, thus no parameter adjust
+2026-03-29 01:44:20,527 [INFO] pipeline.fusion_pipeline: ── Cycle 11 ──────────────────────────────────
+2026-03-29 01:44:21,537 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=11 adc=632 ewma=614.2 sse=-137.8 int_err=-1727 cv=0.037 settling=True effectiveness=effective spike=False low=False
+2026-03-29 01:44:21,628 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:44:21,628 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:44:22,264 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:44:22,266 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | Still searching for beam as is_low is True. Continuing symmetric upward sweep.
+2026-03-29 01:44:22,266 [INFO] __main__: [SIM] set_electrodes a=1100 b=1100
+2026-03-29 01:44:22,266 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=1000→1100 b=1000→1100
+2026-03-29 01:44:22,352 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:44:22,353 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:44:23,057 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:44:23,060 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No focused_analysis provided for this cycle. The system is still in its initial startup phase, so no parameter adjustmen
+2026-03-29 01:44:23,061 [INFO] pipeline.fusion_pipeline: ── Cycle 12 ──────────────────────────────────
+2026-03-29 01:44:24,071 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=12 adc=641 ewma=622.3 sse=-129.7 int_err=-1838 cv=0.042 settling=True effectiveness=effective spike=False low=False
+2026-03-29 01:44:24,164 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:44:24,164 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:44:24,926 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:44:24,928 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | Continuing upward sweep for beam search (is_low is True). No signal detected yet.
+2026-03-29 01:44:24,928 [INFO] __main__: [SIM] set_electrodes a=1200 b=1200
+2026-03-29 01:44:24,928 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=1100→1200 b=1100→1200
+2026-03-29 01:44:25,025 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:44:25,025 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:44:25,746 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:44:25,748 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No focused_analysis provided for this cycle. The system is still in its initial startup phase, thus no parameter adjustm
+2026-03-29 01:44:25,749 [INFO] pipeline.fusion_pipeline: ── Cycle 13 ──────────────────────────────────
+2026-03-29 01:44:26,762 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=13 adc=659 ewma=633.3 sse=-118.7 int_err=-1931 cv=0.048 settling=True effectiveness=effective spike=False low=False
+2026-03-29 01:44:26,853 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:44:26,854 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:44:27,587 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:44:27,589 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | Still searching for the beam as is_low is True. Continuing symmetric upward sweep.
+2026-03-29 01:44:27,589 [INFO] __main__: [SIM] set_electrodes a=1300 b=1300
+2026-03-29 01:44:27,589 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=1200→1300 b=1200→1300
+2026-03-29 01:44:27,677 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:44:27,678 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:44:28,242 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:44:28,244 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No focused_analysis provided for this cycle. The system is still in its initial startup phase, so no parameter adjustmen
+2026-03-29 01:44:28,245 [INFO] pipeline.fusion_pipeline: ── Cycle 14 ──────────────────────────────────
+2026-03-29 01:44:29,257 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=14 adc=669 ewma=644.0 sse=-108.0 int_err=-2014 cv=0.054 settling=True effectiveness=effective spike=False low=False
+2026-03-29 01:44:29,351 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:44:29,352 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:44:30,257 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:44:30,262 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | Continuing upward sweep for beam search (is_low is True). No signal detected yet.
+2026-03-29 01:44:30,263 [INFO] __main__: [SIM] set_electrodes a=1400 b=1400
+2026-03-29 01:44:30,263 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=1300→1400 b=1300→1400
+2026-03-29 01:44:30,392 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:44:30,393 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:44:31,000 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:44:31,003 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No focused_analysis provided for this cycle. The system is still in its initial startup phase, thus no parameter adjustm
+2026-03-29 01:44:31,004 [INFO] pipeline.fusion_pipeline: ── Cycle 15 ──────────────────────────────────
+2026-03-29 01:44:32,013 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=15 adc=680 ewma=654.8 sse=-97.2 int_err=-2086 cv=0.060 settling=True effectiveness=effective spike=False low=False
+2026-03-29 01:44:32,105 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:44:32,105 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:44:32,708 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:44:32,711 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | Still searching for beam as is_low is True. Continuing symmetric upward sweep.
+2026-03-29 01:44:32,712 [INFO] __main__: [SIM] set_electrodes a=1500 b=1500
+2026-03-29 01:44:32,712 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=1400→1500 b=1400→1500
+2026-03-29 01:44:32,802 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:44:32,803 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:44:33,501 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:44:33,503 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No focused_analysis provided for this cycle. The system is still in its initial startup phase, so no parameter adjustmen
+2026-03-29 01:44:33,505 [INFO] pipeline.fusion_pipeline: ── Cycle 16 ──────────────────────────────────
+2026-03-29 01:44:34,520 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=16 adc=691 ewma=665.7 sse=-86.3 int_err=-2147 cv=0.066 settling=True effectiveness=effective spike=False low=False
+2026-03-29 01:44:34,611 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:44:34,612 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:44:35,370 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:44:35,372 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | Continuing upward sweep for beam search (is_low is True). No signal detected yet.
+2026-03-29 01:44:35,373 [INFO] __main__: [SIM] set_electrodes a=1600 b=1600
+2026-03-29 01:44:35,373 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=1500→1600 b=1500→1600
+2026-03-29 01:44:35,460 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:44:35,460 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:44:36,089 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:44:36,090 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No focused_analysis provided for this cycle. The system is still in its initial startup phase, thus no parameter adjustm
+2026-03-29 01:44:36,091 [INFO] pipeline.fusion_pipeline: ── Cycle 17 ──────────────────────────────────
+2026-03-29 01:44:37,103 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=17 adc=710 ewma=679.0 sse=-73.0 int_err=-2189 cv=0.073 settling=True effectiveness=effective spike=False low=False
+2026-03-29 01:44:37,197 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:44:37,198 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:44:37,930 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:44:37,933 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | Still searching for beam as is_low is True. Continuing symmetric upward sweep.
+2026-03-29 01:44:37,933 [INFO] __main__: [SIM] set_electrodes a=1700 b=1700
+2026-03-29 01:44:37,933 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=1600→1700 b=1600→1700
+2026-03-29 01:44:38,022 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:44:38,022 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:44:38,751 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:44:38,754 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No focused_analysis provided for this cycle. The system is still in its initial startup phase, so no parameter adjustmen
+2026-03-29 01:44:38,755 [INFO] pipeline.fusion_pipeline: ── Cycle 18 ──────────────────────────────────
+2026-03-29 01:44:39,768 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=18 adc=723 ewma=692.2 sse=-59.8 int_err=-2218 cv=0.079 settling=True effectiveness=effective spike=False low=False
+2026-03-29 01:44:39,863 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:44:39,863 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:44:40,594 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:44:40,596 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | Continuing upward sweep for beam search (is_low is True). No signal detected yet.
+2026-03-29 01:44:40,596 [INFO] __main__: [SIM] set_electrodes a=1800 b=1800
+2026-03-29 01:44:40,596 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=1700→1800 b=1700→1800
+2026-03-29 01:44:40,683 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:44:40,684 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:44:41,256 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:44:41,258 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No focused_analysis provided for this cycle. The system is still in its initial startup phase, thus no parameter adjustm
+2026-03-29 01:44:41,259 [INFO] pipeline.fusion_pipeline: ── Cycle 19 ──────────────────────────────────
+2026-03-29 01:44:42,275 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=19 adc=734 ewma=704.7 sse=-47.3 int_err=-2236 cv=0.085 settling=True effectiveness=effective spike=False low=False
+2026-03-29 01:44:42,365 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:44:42,365 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:44:43,052 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:44:43,055 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | Still searching for beam as is_low is True. Continuing symmetric upward sweep.
+2026-03-29 01:44:43,055 [INFO] __main__: [SIM] set_electrodes a=1900 b=1900
+2026-03-29 01:44:43,055 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=1800→1900 b=1800→1900
+2026-03-29 01:44:43,141 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:44:43,141 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:44:43,870 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:44:43,873 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No focused_analysis provided for this cycle. The system is still in its initial startup phase, so no parameter adjustmen
+2026-03-29 01:44:43,874 [INFO] pipeline.fusion_pipeline: ── Cycle 20 ──────────────────────────────────
+2026-03-29 01:44:44,500 [INFO] __main__: Signal SIGINT received — stopping pipeline after current cycle
+2026-03-29 01:44:44,888 [INFO] pipeline.agents.analyze_agent: AnalyzeAgent | cycle=20 adc=747 ewma=717.4 sse=-34.6 int_err=-2241 cv=0.091 settling=True effectiveness=effective spike=False low=False
+2026-03-29 01:44:44,978 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:44:44,978 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:44:45,816 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:44:45,818 [INFO] pipeline.agents.decision_agent: DecisionAgent | action=increase_both delta_a=+100 delta_b=+100 confidence=0.80 | Continuing upward sweep for beam search (is_low is True). No signal detected yet.
+2026-03-29 01:44:45,819 [INFO] __main__: [SIM] set_electrodes a=2000 b=2000
+2026-03-29 01:44:45,819 [INFO] pipeline.agents.action_agent: ActionAgent | action=increase_both ok=True a=1900→2000 b=1900→2000
+2026-03-29 01:44:45,910 [INFO] google_adk.google.adk.models.google_llm: Sending out request, model: gemini-2.5-flash-lite, backend: GoogleLLMVariant.GEMINI_API, stream: False
+2026-03-29 01:44:45,910 [INFO] google_genai.models: AFC is enabled with max remote calls: 10.
+2026-03-29 01:44:46,635 [INFO] google_adk.google.adk.models.google_llm: Response received from the model.
+2026-03-29 01:44:46,638 [INFO] pipeline.agents.improvement_agent: ImprovementAgent | changes_made=False params_changed={} | No focused_analysis provided for this cycle. The system is still in its initial startup phase, thus no parameter adjustm
+2026-03-29 01:44:46,639 [INFO] pipeline.fusion_pipeline: Shutting down — switching Arduino to auto/backup mode
+2026-03-29 01:44:46,639 [INFO] __main__: [SIM] switched to auto mode
+2026-03-29 01:44:46,639 [INFO] pipeline.fusion_pipeline: === Fusion Pipeline Stopped ===
+2026-03-29 01:44:46,639 [INFO] __main__: [SIM] Simulated bridge disconnected
