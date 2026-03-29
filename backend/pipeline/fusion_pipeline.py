@@ -111,23 +111,24 @@ def build_pipeline(model: str = "gemini-2.5-flash-lite") -> SequentialAgent:
 #infinite loop
 # lowkey just boilerplate code
 class FusionPipelineRunner:
- 
+
     APP_NAME   = "fusion_reactor"
     USER_ID    = "system"
     SESSION_ID = "main_session"
- 
+
     def __init__(
         self,
-        bridge,
+        bridge, # basically either simulated bridge or the serial bridge
         model: str = "gemini-2.5-flash-lite",
         initial_state: dict | None = None,
+        max_consecutive_errors: int = 5,      # ← add this
     ):
-        self._bridge        = bridge
-        self._model         = model
-        self._initial_state = initial_state or DEFAULT_STATE.copy()
-        self._running       = False
- 
-        # ADK infrastructure
+        self._bridge                 = bridge
+        self._model                  = model
+        self._initial_state          = initial_state or DEFAULT_STATE.copy()
+        self._running                = False
+        self._max_consecutive_errors = max_consecutive_errors   # ← store it
+
         self._session_service = InMemorySessionService()
         self._pipeline        = build_pipeline(model=model)
         self._runner          = Runner(
@@ -135,6 +136,7 @@ class FusionPipelineRunner:
             app_name=self.APP_NAME,
             session_service=self._session_service,
         )
+
  
     # sets the session state loll and starts the adk sht
     async def _create_session(self):
@@ -173,20 +175,16 @@ class FusionPipelineRunner:
  
     # execute infinite full cycle 
     async def run_forever(self):
-        
-        # Initialise tool bridge reference
         init_tools(self._bridge)
- 
-        # Create session
         await self._create_session()
- 
-        # Switch Arduino to AI mode
-        set_ai_mode() # CHECK THAT THIS IS THE RIGHT FUNCTION NAME
+
+        set_ai_mode()
         logger.info("Arduino switched to AI mode")
- 
-        self._running = True
-        cycle = 0
- 
+
+        self._running      = True
+        cycle              = 0
+        consecutive_errors = 0
+
         logger.info("=== Fusion Pipeline Started ===")
         try:
             while self._running:
@@ -194,13 +192,26 @@ class FusionPipelineRunner:
                 logger.info("── Cycle %d ──────────────────────────────────", cycle)
                 try:
                     await self._run_one_cycle(cycle)
+                    consecutive_errors = 0   # reset on any successful cycle
                 except asyncio.CancelledError:
                     raise
                 except Exception as exc:
-                    logger.error("Cycle %d error: %s", cycle, exc, exc_info=True)
-                    # Don't crash the loop on transient errors
-                    await asyncio.sleep(2.0)
- 
+                    consecutive_errors += 1
+                    logger.error(
+                        "Cycle %d error (%d/%d): %s",
+                        cycle, consecutive_errors,
+                        self._max_consecutive_errors, exc,
+                        exc_info=True,
+                    )
+                    if consecutive_errors >= self._max_consecutive_errors:
+                        logger.critical(
+                            "%d consecutive failures — unrecoverable, shutting down",
+                            self._max_consecutive_errors,
+                        )
+                        self._running = False
+                    else:
+                        await asyncio.sleep(2.0)
+
         except asyncio.CancelledError:
             logger.info("Pipeline cancelled")
         finally:
