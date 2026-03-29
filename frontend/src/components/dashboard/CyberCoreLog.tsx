@@ -1,12 +1,16 @@
 "use client"
-import React, { useEffect, useRef } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { useAgentStore } from "@/lib/store/useAgentStore"
 import { GlassPanel } from "../ui/GlassPanel"
-import { Terminal, Bot, Zap, ShieldAlert, Cpu } from "lucide-react"
+import { Terminal, Bot, Zap, ShieldAlert, Cpu, Volume2, VolumeX } from "lucide-react"
+import { AGENT_VOICES, AgentType } from "@/lib/agents/voices"
 
 export function CyberCoreLog() {
   const logs = useAgentStore((state) => state.logs)
   const scrollRef = useRef<HTMLDivElement>(null)
+  const [audioEnabled, setAudioEnabled] = useState(true)
+  const audioQueue = useRef<string[]>([])
+  const isPlaying = useRef(false)
 
   // Auto scroll to bottom
   useEffect(() => {
@@ -15,26 +19,58 @@ export function CyberCoreLog() {
     }
   }, [logs])
 
-  // Pseudo-Audio Queue Implementation
+  // Process the ElevenLabs audio queue
+  const processQueue = async () => {
+    if (isPlaying.current || audioQueue.current.length === 0 || !audioEnabled) return;
+
+    isPlaying.current = true;
+    const { text, agent } = JSON.parse(audioQueue.current.shift()!);
+    const voiceData = AGENT_VOICES[agent as AgentType] || AGENT_VOICES.System;
+
+    try {
+      const response = await fetch('/api/tts', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          text,
+          voiceId: voiceData.voiceId,
+          settings: voiceData.settings
+        })
+      });
+
+      if (response.ok) {
+        const audioBlob = await response.blob();
+        const audioUrl = URL.createObjectURL(audioBlob);
+        const audio = new Audio(audioUrl);
+        
+        audio.onended = () => {
+          URL.revokeObjectURL(audioUrl);
+          isPlaying.current = false;
+          processQueue(); // Look for next one
+        };
+
+        audio.play();
+      } else {
+        console.error("TTS Fetch Failed");
+        isPlaying.current = false;
+        processQueue();
+      }
+    } catch (err) {
+      console.error("TTS Error:", err);
+      isPlaying.current = false;
+      processQueue();
+    }
+  };
+
+  // Trigger TTS on new logs
   useEffect(() => {
     if (logs.length === 0) return;
     const latest = logs[logs.length - 1];
-    if (latest.message && 'speechSynthesis' in window) {
-      // Very basic implementation: wait for queue to clear then speak
-      const utterance = new SpeechSynthesisUtterance(latest.message);
-      
-      // Attempt Voice Persona mapping
-      const voices = window.speechSynthesis.getVoices();
-      if (latest.agent === "AnalyzeAgent") {
-        utterance.rate = 1.3;
-        utterance.pitch = 1.5;
-        // utterance.voice = voices.find(v => v.name.includes("Female")) || null;
-      } else if (latest.agent === "ActionAgent") {
-        utterance.pitch = 0.5;
-        utterance.rate = 0.9;
-      }
-      
-      window.speechSynthesis.speak(utterance);
+    
+    // Add to queue if enabled
+    if (audioEnabled && latest.message) {
+      audioQueue.current.push(JSON.stringify({ text: latest.message, agent: latest.agent }));
+      processQueue();
     }
   }, [logs])
 
@@ -64,9 +100,13 @@ export function CyberCoreLog() {
         <h3 className="font-space uppercase tracking-widest text-sm text-slate-400 font-bold flex items-center gap-2">
           <Terminal className="w-4 h-4" /> Agent Pipeline
         </h3>
-        <div className="flex gap-2">
-           <span className="w-2 h-2 rounded-full bg-cyan animate-pulse"></span>
-        </div>
+        <button 
+          onClick={() => setAudioEnabled(!audioEnabled)}
+          className={`p-2 rounded-sm transition-colors ${audioEnabled ? 'bg-cyan/10 text-cyan' : 'bg-white/5 text-slate-500'}`}
+          title={audioEnabled ? "Disable Voice Engine" : "Enable Voice Engine"}
+        >
+          {audioEnabled ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
+        </button>
       </div>
 
       <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 space-y-4 font-mono text-xs">
@@ -94,8 +134,8 @@ export function CyberCoreLog() {
             </p>
             
             {log.actionPayload && (
-               <div className="bg-void/50 p-2 rounded-sm border border-white/5 text-slate-400">
-                 {JSON.stringify(log.actionPayload)}
+               <div className="bg-void/50 p-2 rounded-sm border border-white/5 text-slate-400 overflow-x-auto">
+                 <pre>{JSON.stringify(log.actionPayload, null, 2)}</pre>
                </div>
             )}
             
